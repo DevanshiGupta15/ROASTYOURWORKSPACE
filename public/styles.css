@@ -1,0 +1,99 @@
+/* Tadka & Chai Custom Theme Stylesheet - Stitch Project 2958853130171067856 */
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Classic Meme Overlay Text (Impact font with black outline stroke) */
+.meme-overlay-text {
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-align: center;
+  letter-spacing: 0.05em;
+  line-height: 1.15;
+  text-shadow: 
+    -2px -2px 0 #000000,  
+     2px -2px 0 #000000,
+    -2px  2px 0 #000000,
+     2px  2px 0 #000000,
+     0px -2px 0 #000000,
+     0px  2px 0 #000000,
+    -2px  0px 0 #000000,
+     2px  0px 0 #000000,
+     0px  3px 6px rgba(0,0,0,0.85);
+}
+
+/* Crisp Precision Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0F19;
+}
+::-webkit-scrollbar-thumb {
+  background: #25334E;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F59E0B;
+}
+
+/* Fiery Post Glow Elevation */
+.fiery-glow {
+  box-shadow: 0 0 25px -4px rgba(255, 87, 34, 0.35);
+}
+
+.amber-glow {
+  box-shadow: 0 0 20px -2px rgba(245, 158, 11, 0.25);
+}
+
+.violet-glow {
+  box-shadow: 0 0 20px -2px rgba(139, 92, 246, 0.25);
+}
+
+/* Pulse animation on spicy badge */
+@keyframes flame-pulse {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.08); filter: brightness(1.25); }
+}
+
+.animate-flame {
+  animation: flame-pulse 2s infinite ease-in-out;
+}
+
+/* Decency Intercept Crimson Shake */
+@keyframes shake-intercept {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+
+.intercept-shake {
+  animation: shake-intercept 0.4s ease-in-out;
+}
+
+/* Toggle Switch Styles */
+.toggle-btn[aria-checked="true"] {
+  background-color: #FF5625 !important;
+}
+.toggle-btn[aria-checked="true"] .toggle-knob {
+  transform: translateX(1.5rem) !important;
+}
+.toggle-btn[aria-checked="false"] {
+  background-color: #334155 !important;
+}
+.toggle-btn[aria-checked="false"] .toggle-knob {
+  transform: translateX(0) !important;
+}
+
+/* Smooth Tab transitions */
+.tab-active {
+  background: #222a3d !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}

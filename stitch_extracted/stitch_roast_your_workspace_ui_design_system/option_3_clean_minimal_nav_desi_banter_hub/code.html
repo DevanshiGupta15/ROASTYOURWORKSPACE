@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Roast Your Workspace — Bollywood &amp; Meme-First Roasting Studio</title>
+<!-- Google Fonts: Plus Jakarta Sans, Outfit, JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Outfit:wght@500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Forms & Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#FF5722',
+              saffron: '#F59E0B',
+              amber: '#FBBF24',
+              chili: '#EF4444'
+            },
+            surface: {
+              base: '#0B0F19',
+              card: '#111827',
+              elevated: '#161F33',
+              subtle: '#1E293B',
+              border: '#334155'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            heading: ['"Outfit"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+            impact: ['Impact', '"Arial Black"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Typography & Crisp Pixel Smoothing -->
+<style data-purpose="typography-and-effects">
+    * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    .meme-overlay-text {
+      font-family: 'Impact', 'Arial Black', sans-serif;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      text-align: center;
+      letter-spacing: 0.05em;
+      line-height: 1.15;
+      text-shadow: 
+        -2px -2px 0 #000000,  
+         2px -2px 0 #000000,
+        -2px  2px 0 #000000,
+         2px  2px 0 #000000,
+         0px -2px 0 #000000,
+         0px  2px 0 #000000,
+        -2px  0px 0 #000000,
+         2px  0px 0 #000000;
+    }
+
+    /* Crisp Precision Scrollbars */
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B0F19;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #25334E;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #F59E0B;
+    }
+  </style>
+</head>
+<body class="bg-[#0B0F19] text-slate-100 min-h-screen font-sans antialiased selection:bg-brand-orange selection:text-white flex flex-col relative overflow-x-hidden">
+<!-- Crisp Subtle Watermark Emoji Background -->
+<div aria-hidden="true" class="pointer-events-none fixed inset-0 z-0 select-none opacity-[0.035] flex flex-wrap gap-14 p-10 text-4xl justify-around items-center text-white">
+<span>😂</span><span>☕</span><span>🤣</span><span>🌶️</span><span>🤭</span><span>🚜</span><span>👓</span><span>🔥</span>
+<span>😂</span><span>☕</span><span>🤣</span><span>🌶️</span><span>🤭</span><span>🚜</span><span>👓</span><span>🔥</span>
+<span>☕</span><span>🤣</span><span>🌶️</span><span>😂</span><span>🤭</span><span>👓</span><span>🚜</span><span>🔥</span>
+<span>🤣</span><span>☕</span><span>😂</span><span>🌶️</span><span>🤭</span><span>🚜</span><span>👓</span><span>🔥</span>
+</div>
+<!-- BEGIN: TopHeader -->
+<header class="sticky top-0 z-50 bg-[#0F172A]/95 backdrop-blur-md border-b border-slate-800 px-6 lg:px-12 py-4 shadow-sm">
+<div class="max-w-[1720px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4 relative z-10"><div class="flex items-center space-x-3"><div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-orange-600 via-amber-500 to-amber-400 flex items-center justify-center shadow-md transform rotate-3 shrink-0"><span class="text-xl leading-none">🌶️</span></div><span class="font-heading font-black text-xl tracking-tight text-white uppercase">RoastYour<span class="text-amber-400">Workspace</span></span></div><div class="flex items-center gap-6"><div class="flex items-center gap-2 bg-slate-900/90 border border-slate-700/80 px-3.5 py-1.5 rounded-full shadow-sm"><span class="text-amber-400 text-sm">🔥</span><span class="text-xs font-mono font-semibold text-slate-200 tracking-wide">9 Days Streak</span></div><div class="flex items-center gap-3 pl-2"><div class="text-right"><span class="text-xs text-slate-400 font-medium block leading-tight">Hii,</span><span class="text-sm font-heading font-bold text-white leading-tight">Rohan S.</span></div><div class="w-9 h-9 rounded-full bg-gradient-to-tr from-orange-600 to-amber-500 border border-amber-400/40 flex items-center justify-center text-sm font-bold text-white shadow cursor-pointer shrink-0" title="Rohan S. Profile">👓</div></div></div></div>
+</header>
+<!-- END: TopHeader -->
+<!-- BEGIN: MainStudioContent -->
+<main class="flex-1 max-w-[1720px] w-full mx-auto p-6 lg:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
+<!-- BEGIN: LeftSidebar -->
+<aside class="lg:col-span-3 space-y-6">
+<div class="bg-surface-card border border-slate-700/80 rounded-2xl p-4 shadow-sm">
+<div class="flex items-center justify-between mb-3">
+<h2 class="font-heading text-sm font-extrabold uppercase tracking-wide text-white flex items-center gap-2">
+<span>🎯</span> Office Target Board
+      </h2>
+<span class="text-[11px] font-bold text-amber-950 bg-amber-400 px-2 py-0.5 rounded-full font-mono">42 Online</span>
+</div>
+<div class="relative mb-3">
+<input class="w-full bg-slate-950 border border-slate-700 text-xs rounded-xl pl-8 pr-3 py-2 text-slate-100 placeholder-slate-400 focus:outline-none focus:border-amber-400 font-sans transition" placeholder="Search colleague by name, desk or quirky habit..." type="text"/>
+<span class="absolute left-2.5 top-2.5 text-slate-400 text-xs">🔍</span>
+</div>
+<div class="flex flex-wrap gap-1 text-[11px] font-medium pb-3 border-b border-slate-800">
+<button class="px-2.5 py-1 rounded-lg bg-orange-600 text-white font-semibold">All (48) 🔥</button>
+<button class="px-2 py-1 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 font-medium transition">Devs &amp; Backend</button>
+<button class="px-2 py-1 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 font-medium transition">PMs &amp; Designers</button>
+<button class="px-2 py-1 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 font-medium transition">QA &amp; Staging</button>
+<button class="px-2 py-1 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 font-medium transition">Founder's Office</button>
+</div>
+<div class="space-y-2 mt-3 max-h-[480px] overflow-y-auto pr-1">
+<!-- Target 1 -->
+<div class="bg-surface-elevated hover:bg-slate-800 border border-slate-700/80 p-3 rounded-xl flex items-start justify-between transition group">
+<div class="flex items-start gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-lg shrink-0">👓</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-xs font-bold text-white font-heading">Rohan S.</span>
+<span class="text-[10px] bg-rose-500/20 text-rose-300 border border-rose-500/30 px-1.5 py-0.2 rounded font-mono font-medium">DevOps</span>
+</div>
+<p class="text-[12px] text-amber-300/90 mt-0.5 font-medium leading-tight">"Panchayat Banrakas energy during prod deployment review"</p>
+<div class="flex items-center gap-2 mt-1 text-[10px] text-slate-400 font-mono">
+<span class="text-orange-400 font-semibold">🔥 29 roasts</span>
+<span>•</span>
+<span class="text-emerald-400">Merged code 5:58 PM Friday</span>
+</div>
+</div>
+</div>
+<button class="text-xs px-2 py-1 bg-orange-600 hover:bg-orange-500 text-white rounded-lg font-bold transition shrink-0" title="Roast Rohan">🌶️</button>
+</div>
+<!-- Target 2 -->
+<div class="bg-surface-elevated hover:bg-slate-800 border border-slate-700/80 p-3 rounded-xl flex items-start justify-between transition group">
+<div class="flex items-start gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-lg shrink-0">👩‍💼</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-xs font-bold text-white font-heading">Ananya V.</span>
+<span class="text-[10px] bg-blue-500/20 text-blue-300 border border-blue-500/30 px-1.5 py-0.2 rounded font-mono font-medium">Lead PM</span>
+</div>
+<p class="text-[12px] text-amber-300/90 mt-0.5 font-medium leading-tight">"'Ek chhota sa quick alignment call le lein?'"</p>
+<div class="flex items-center gap-2 mt-1 text-[10px] text-slate-400 font-mono">
+<span class="text-orange-400 font-semibold">🔥 56 roasts</span>
+<span>•</span>
+<span class="text-amber-400">"Quick 2-min sync" = 45 mins</span>
+</div>
+</div>
+</div>
+<button class="text-xs px-2 py-1 bg-orange-600 hover:bg-orange-500 text-white rounded-lg font-bold transition shrink-0" title="Roast Ananya">🌶️</button>
+</div>
+<!-- Target 3 -->
+<div class="bg-surface-elevated hover:bg-slate-800 border border-slate-700/80 p-3 rounded-xl flex items-start justify-between transition group">
+<div class="flex items-start gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-lg shrink-0">🚜</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-xs font-bold text-white font-heading">Sachiv Ji (Nikhil)</span>
+<span class="text-[10px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-1.5 py-0.2 rounded font-mono font-medium">Backend</span>
+</div>
+<p class="text-[12px] text-amber-300/90 mt-0.5 font-medium leading-tight">"'Dekh raha hai Binod, kaise Jira ticket skip ho raha hai'"</p>
+<div class="flex items-center gap-2 mt-1 text-[10px] text-slate-400 font-mono">
+<span class="text-orange-400 font-semibold">🔥 38 roasts</span>
+<span>•</span>
+<span class="text-slate-300">Slack: 'In a Focus Zone' 24/7</span>
+</div>
+</div>
+</div>
+<button class="text-xs px-2 py-1 bg-orange-600 hover:bg-orange-500 text-white rounded-lg font-bold transition shrink-0" title="Roast Sachiv Ji">🌶️</button>
+</div>
+<!-- Target 4 -->
+<div class="bg-surface-elevated hover:bg-slate-800 border border-slate-700/80 p-3 rounded-xl flex items-start justify-between transition group">
+<div class="flex items-start gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-lg shrink-0">🕶️</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-xs font-bold text-white font-heading">Tanmay D.</span>
+<span class="text-[10px] bg-purple-500/20 text-purple-300 border border-purple-500/30 px-1.5 py-0.2 rounded font-mono font-medium">VP Product</span>
+</div>
+<p class="text-[12px] text-amber-300/90 mt-0.5 font-medium leading-tight">"'Let's take this offline and circle back by EOD'"</p>
+<div class="flex items-center gap-2 mt-1 text-[10px] text-slate-400 font-mono">
+<span class="text-orange-400 font-semibold">🔥 104 roasts</span>
+<span>•</span>
+<span class="text-rose-400 font-medium">"Noted with thanks" to P0 bugs</span>
+</div>
+</div>
+</div>
+<button class="text-xs px-2 py-1 bg-orange-600 hover:bg-orange-500 text-white rounded-lg font-bold transition shrink-0" title="Roast Tanmay">🌶️</button>
+</div>
+</div>
+<!-- Panchayat Meme Bounty -->
+<div class="mt-3 p-3 bg-slate-900 rounded-xl border border-amber-500/40 flex items-center justify-between">
+<div class="text-[12px]">
+<span class="text-amber-400 font-bold block font-heading uppercase text-[11px] tracking-wide">🏆 Panchayat Meme Bounty:</span>
+<span class="text-slate-300 text-[11px] leading-tight block mt-0.5">Roast sprint extension with Binod template! (+50 Masala Points)</span>
+</div>
+<span class="text-2xl ml-2 shrink-0">🏆</span>
+</div>
+</div>
+</aside>
+<!-- END: LeftSidebar -->
+<!-- BEGIN: CenterStage -->
+<section class="lg:col-span-6 space-y-5">
+<!-- Studio Editor Box -->
+<div class="bg-surface-card border border-slate-800 rounded-2xl p-6 md:p-7 shadow-sm">
+<div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-orange-600 flex items-center justify-center text-white text-base font-bold shrink-0">🎬</div>
+<div>
+<h2 class="font-heading text-sm font-black uppercase tracking-wide text-white flex items-center gap-2">
+            Desi Meme Studio &amp; Workplace Roaster
+            <span class="bg-amber-400 text-slate-950 font-mono font-bold text-[10px] px-2 py-0.5 rounded">Clean Banter Approved</span>
+</h2>
+<p class="text-[11px] text-slate-300 mt-0.5">Panchayat, TMKOC, Bollywood &amp; Cartoons with automated HR decency filter.</p>
+</div>
+</div>
+<div class="hidden sm:block">
+<span class="text-[11px] font-mono bg-slate-950 text-slate-300 border border-slate-800 px-2.5 py-1 rounded-md">
+          Posting: <strong class="text-emerald-400 font-semibold">Anonymous Chai Pe Charcha #504</strong>
+</span>
+</div>
+</div>
+<!-- Universe Pills -->
+<div class="mb-3">
+<label class="block text-[11px] font-bold text-amber-400 uppercase tracking-wide mb-1.5 font-heading">Choose Meme Universe / Category</label>
+<div class="flex flex-wrap gap-1.5 text-xs font-medium">
+<button class="px-2.5 py-1.5 rounded-lg bg-orange-600 text-white font-semibold">All Memes (42)</button>
+<button class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">Panchayat 🚜</button>
+<button class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">TMKOC 👓</button>
+<button class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">90s Cartoons &amp; Nostalgia 🎨</button>
+<button class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">Bollywood Classics 🎬</button>
+<button class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">Shark Tank Pitch 🦈</button>
+</div>
+</div>
+<!-- Editor Controls & Preview -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+<div class="md:col-span-6 space-y-2.5">
+<div class="grid grid-cols-3 gap-2">
+<!-- Template 1 -->
+<button class="border border-orange-500/80 bg-slate-900 p-2 rounded-xl text-left hover:border-orange-400 transition flex flex-col items-center" type="button">
+<div class="w-full h-12 bg-slate-950 rounded-lg border border-slate-800 flex items-center justify-center text-xl">🚜</div>
+<span class="text-[10px] font-semibold text-amber-300 mt-1 truncate w-full text-center">Binod (Panchayat)</span>
+</button>
+<!-- Template 2 -->
+<button class="border border-slate-700 bg-slate-900 p-2 rounded-xl text-left hover:border-slate-500 transition flex flex-col items-center" type="button">
+<div class="w-full h-12 bg-slate-950 rounded-lg border border-slate-800 flex items-center justify-center text-xl">👓☕</div>
+<span class="text-[10px] font-semibold text-slate-300 mt-1 truncate w-full text-center">Jethalal (TMKOC)</span>
+</button>
+<!-- Template 3 -->
+<button class="border border-slate-700 bg-slate-900 p-2 rounded-xl text-left hover:border-slate-500 transition flex flex-col items-center" type="button">
+<div class="w-full h-12 bg-slate-950 rounded-lg border border-slate-800 flex items-center justify-center text-xl">🐱🐭</div>
+<span class="text-[10px] font-semibold text-slate-300 mt-1 truncate w-full text-center">Tom &amp; Jerry</span>
+</button>
+<!-- Template 4: Circuit using https://lh3.googleusercontent.com/aida-public/AB6AXuCjgXsrPbdezlEdmA1ifQ-v7OkaEbzJyGn1TzrSVtdd47EhyrlDUHPKI_dcedpte5ZL74XmzC49_4F-j4dSWiftoPJmKH5P9IkrH7fsUBtAuRwek12Dac33zEGveNKK56zumgEVyAsG0XWJxX1_bPdt1O6Xk_VIb6SQvENTGJNb96ilPgn2vDcABbmIqIjUZCfcR7Y7MVkNJ17bk8ikSCmJ5YvosB4mz0IchborCZFSqxav8QfGOSzjy6ogaCBlt2ZQFw -->
+<button class="border border-slate-700 bg-slate-900 p-2 rounded-xl text-left hover:border-amber-400 transition flex flex-col items-center col-span-3" type="button">
+<div class="w-full h-16 rounded-lg overflow-hidden relative border border-slate-800">
+<img alt="Circuit Meme Template" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUjXE98BmZohzxHHeTKpXlRQZ6qHKl8hKur9i4kzsBANTQxlO81EunCafYDakO4iLQgRFwsrTxNN5PKjRhUrgyqhvjNGuWCSnhQeP6czWUQQVcOFd_k3LyfMuGedj2XMLelHcxqU3jagxG0C_LN9VGVDxKbMyrvMq9Hpjr_pBM6MAg3NMyok9y543310sKM9eFFwWAhfZLNN3OTJT-pVaoVGa9DKW9rhQVWpaEJdHO887UB7xIlZbTsHfOE60haYbTpA"/>
+<div class="absolute inset-0 bg-slate-950/40 flex items-center justify-center">
+<span class="text-[11px] font-bold text-amber-300 font-mono bg-black/70 px-2 py-0.5 rounded">🎬 Circuit (Munna Bhai)</span>
+</div>
+</div>
+</button>
+</div>
+<div class="space-y-2 pt-1">
+<div>
+<label class="block text-[10px] font-bold text-slate-300 uppercase font-mono">Top Punchline</label>
+<input class="w-full bg-slate-950 border border-slate-700 text-xs rounded-lg px-2.5 py-1.5 text-white font-mono focus:border-amber-400 focus:outline-none" id="memeTopInput" type="text" value="DEKH RAHA HAI BINOD?"/>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-slate-300 uppercase font-mono">Bottom Punchline</label>
+<input class="w-full bg-slate-950 border border-slate-700 text-xs rounded-lg px-2.5 py-1.5 text-white font-mono focus:border-amber-400 focus:outline-none" id="memeBottomInput" type="text" value="KAISE SPRINT DELAY KO 'STRATEGIC ARCHITECTURAL REFACTORING' BOL RAHE HAIN!"/>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-slate-300 uppercase font-mono">Dedicate Roast to Colleague (Optional)</label>
+<select class="w-full bg-slate-950 border border-slate-700 text-xs rounded-lg px-2.5 py-1.5 text-slate-200 focus:border-amber-400 focus:outline-none">
+<option>🚜 Sachiv Ji (Backend Architect)</option>
+<option>👓 Rohan S. (Banrakas of DevOps)</option>
+<option>☕ Ananya V. (Sync Queen PM)</option>
+<option>🕶️ Tanmay D. (2 AM Slack Ping Lord)</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Live Canvas Preview Box -->
+<div class="md:col-span-6 flex flex-col justify-between">
+<label class="block text-[11px] font-bold text-amber-400 uppercase tracking-wide mb-1 font-heading">Live Roast Canvas Preview</label>
+<div class="relative aspect-square w-full rounded-xl overflow-hidden bg-slate-950 border-2 border-amber-400/90 flex flex-col justify-between p-4 shadow-sm" id="memeCanvasContainer">
+<div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+<div class="w-20 h-20 rounded-2xl border-2 border-dashed border-amber-400/60 flex items-center justify-center bg-slate-900/90 shadow-inner">
+<span class="text-4xl">🚜🧑‍🌾</span>
+</div>
+<span class="text-[10px] tracking-widest text-amber-300 uppercase font-mono font-bold mt-2 bg-slate-950/90 px-2 py-0.5 rounded border border-amber-500/40">Panchayat Phulera Special</span>
+</div>
+<div class="relative z-10 text-center">
+<p class="meme-overlay-text text-sm sm:text-base font-black" id="canvasTopText">DEKH RAHA HAI BINOD?</p>
+</div>
+<div class="relative z-10 flex justify-between items-center text-[10px] text-slate-200 font-mono bg-slate-950/80 px-2.5 py-1 rounded backdrop-blur-sm self-center border border-slate-700">
+<span class="font-bold text-emerald-400">🛡️ Verified @swiggy.in</span>
+<span class="text-amber-400 ml-2 font-bold">• Zero Bullying Guaranteed</span>
+</div>
+<div class="relative z-10 text-center">
+<p class="meme-overlay-text text-xs sm:text-sm font-black text-amber-300" id="canvasBottomText">KAISE SPRINT DELAY KO 'STRATEGIC ARCHITECTURAL REFACTORING' BOL RAHE HAIN!</p>
+</div>
+</div>
+<div class="mt-2.5 p-2 rounded-lg bg-slate-950 border border-emerald-500/40 flex items-center justify-between text-[11px]">
+<div class="flex items-center gap-1.5 text-emerald-400">
+<span class="text-sm leading-none">🛡️</span>
+<span class="font-bold">HR Decency Filter:</span>
+<span class="text-slate-300">Strictly workplace humor &amp; tropes</span>
+</div>
+<span class="text-[10px] font-bold text-emerald-400 bg-emerald-950 border border-emerald-500/30 px-1.5 py-0.5 rounded font-mono">100% HR APPROVED</span>
+</div>
+</div>
+</div>
+<!-- Bottom Actions -->
+<div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between flex-wrap gap-2">
+<label class="flex items-center gap-2 cursor-pointer text-xs text-slate-300 font-medium">
+<input checked="" class="rounded bg-slate-950 border-slate-700 text-orange-600 focus:ring-0" type="checkbox"/>
+<span>Auto-mask identity if People Ops / HR enters the thread</span>
+</label>
+<div class="flex items-center gap-2">
+<button class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 transition" type="button">Clear Canvas</button>
+<button class="px-4 py-2 rounded-xl bg-gradient-to-r from-orange-600 to-amber-500 hover:brightness-110 text-white font-bold text-xs uppercase tracking-wide shadow transition flex items-center gap-1.5" type="button">
+<span>🚀 Fire Desi Roast</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Live Feed Header -->
+<div class="space-y-4">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wide text-white font-heading">
+<span>🔥 Workplace Roasts Live Feed (Hinglish &amp; Office Banter)</span>
+<span class="text-[10px] font-mono text-slate-950 font-bold bg-amber-400 px-2 py-0.5 rounded">Spiciest Banter 🌶️</span>
+</div>
+<div class="flex items-center gap-1 text-xs">
+<button class="px-2.5 py-1 rounded-lg bg-orange-600 text-white font-semibold">Spiciest Chai 🔥</button>
+<button class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">Trending in Office</button>
+<button class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">Latest Gossip</button>
+<button class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">Hall of Fame</button>
+</div>
+</div>
+<!-- Feed Post 1 (Using Circuit Meme https://lh3.googleusercontent.com/aida-public/AB6AXuAUk8NdH1XWTQ1ahsonTPjA3-MK0xKkk2NWWU3izaVwiv2rs0KBceo8MzZ4w30-ukq03GA5uySNEvX8-HMbzanAE-v5rBdZQ5B_0TTGR9O7WxNoNaJXF4NXMynl1jFqYixQDs5jkivEyVL0Zyhn-ceBhgvtlKA0B9HT4nSlxKkdS2vgndW36Djf6YxWIy8LgNalw2LMNjX5xrTJhdzD5KYxvHD2oMCT_qT9J8BDUfvWHZ_eap5qpgaUhrRf9Q9BfX00jA) -->
+<article class="bg-surface-card border border-slate-800 rounded-2xl p-6 md:p-7 shadow-sm space-y-5 hover:border-slate-700 transition"><div class="flex items-center justify-between pb-2 border-b border-slate-800/80"><div class="flex items-center gap-3.5"><div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-600 to-amber-500 flex items-center justify-center text-sm font-bold text-white shrink-0 shadow">🎬</div><div><div class="flex items-center gap-2"><span class="text-sm font-bold text-white font-heading">Senior Architect Whisperer</span><span class="text-xs font-mono text-slate-400">• 4m ago in #EngineeringHuddle</span></div><p class="text-xs text-slate-300 mt-0.5">Roasting: <span class="text-amber-400 font-semibold">Ananya (Lead PM) &amp; Client Team</span> regarding "Sudden 6 PM Scope Creep"</p></div></div><span class="px-3 py-1 rounded-full text-[11px] font-bold bg-rose-500/15 text-rose-300 border border-rose-500/30 flex items-center gap-1.5"><span>Bollywood Classic • Relatable</span> 🌶️</span></div><div class="space-y-2 py-1"><p class="text-sm md:text-base text-slate-100 font-medium leading-relaxed">"Client explaining 14 brand-new microservices for 45 mins without PRD or architecture specs..."</p><p class="text-xs md:text-sm text-amber-300 font-mono font-medium">"PM: 'Bas ek chhota sa quick change hai prod pe, 2 minute lagega.' Devs in Google Meet:"</p></div><div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-950 p-2 max-w-xl mx-auto shadow-sm"><div class="relative rounded-xl overflow-hidden bg-black flex flex-col items-center"><img alt="Samajh Nahi Aaya Par Sunn Ke Acha Laga - Circuit Meme" class="w-full h-auto object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiAMRLQGKFFKS9btrXPZ64_a4MmXars3kIsTegGLYNY3IEpZKQKoiAi7tLDcGWFjl1stznhKctqAtGhDD53xwlPF2eP-Wcy7573zcBv-gJf7yLdAWecDDaYEEQD5vZW_UYAiOYrIqyXhoXC_nvnlPXLG8rGssXg2V6IhoMbuMLAqEzACZbiivmwRyK1-jzJc46CvA6Z8lB6hZqw1ujIskmu8xbOmJp1IvrlFEBRe_8URdQWbgxSpyXU60CbQih8ybSdQ"/><div class="absolute top-3 left-3"><span class="text-xs bg-slate-950/90 text-amber-300 border border-amber-400/40 font-mono px-2.5 py-1 rounded font-bold shadow-md">🎭 Classic Indian Cinema Meme</span></div><div class="absolute bottom-3 right-3"><span class="text-xs bg-slate-950/90 text-emerald-400 border border-emerald-500/40 font-mono px-2.5 py-1 rounded font-bold shadow-md">100% Workplace Relatable</span></div></div></div><div class="bg-slate-950 border border-slate-800/90 p-4 rounded-xl space-y-3"><div class="flex items-center justify-between text-xs font-mono border-b border-slate-800 pb-2"><span class="font-bold text-amber-400">💬 Hinglish Watercooler Comments (3 replies)</span><span class="text-emerald-400 font-medium">Auto-decency verified ✓</span></div><div class="space-y-2.5 text-xs"><div class="p-3 rounded-lg bg-slate-900 border border-slate-800/80"><span class="font-bold text-emerald-400 font-mono">Sachiv Ji (Nikhil):</span><span class="text-slate-200 ml-1.5 leading-relaxed">"Sach me bhai! 😂 Client nods are real. Pure Munna Bhai &amp; Circuit energy in sprint planning!"</span></div><div class="p-3 rounded-lg bg-slate-900 border border-slate-800/80"><span class="font-bold text-sky-400 font-mono">Rohan S. (DevOps):</span><span class="text-slate-200 ml-1.5 leading-relaxed">"Bhai ye toh daily standup ki kahani hai haha. HR ko mat dikhana ye thread warna PR review block ho jayega! 🤫"</span></div><div class="p-3 rounded-lg bg-slate-900 border border-slate-800/80"><span class="font-bold text-amber-400 font-mono">Tanmay D. (VP Product):</span><span class="text-slate-200 ml-1.5 leading-relaxed">"Can confirm, happened yesterday in sprint retro. Mere kan khade ho gaye sunte hi! 😂🔥"</span></div></div></div><div class="flex items-center justify-between pt-3 border-t border-slate-800 text-xs"><div class="flex items-center gap-2"><button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold transition"><span>🔥</span><span>248 Roasts</span></button><button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold transition"><span>😂</span><span>312 Wah Bhai</span></button><button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold transition"><span>☕</span><span>96 Chai Sips</span></button></div><button class="text-amber-400 hover:text-amber-300 text-xs font-semibold flex items-center gap-1.5 transition"><span>💬 44 Banter Replies</span></button></div></article>
+<!-- Feed Post 2 (Panchayat Edition) -->
+<article class="bg-surface-card border border-slate-700/80 rounded-2xl p-4 md:p-5 shadow-sm space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-600 to-teal-500 flex items-center justify-center text-sm font-bold text-white shrink-0">🚜</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-white font-heading">Sachiv-Ji Enthusiast</span>
+<span class="text-[11px] font-mono text-slate-400">• 16m ago in #QA-vs-Dev</span>
+</div>
+<p class="text-[12px] text-slate-300">
+              Roasting: <span class="text-amber-400 font-semibold">@Dev-Team</span> regarding "Friday 6 PM Release Gate"
+            </p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+          Panchayat Savage 🚜
+        </span>
+</div>
+<p class="text-xs md:text-sm text-slate-100 leading-relaxed font-medium">
+        "When QA discovers a critical blocker 5 mins before Friday 6 PM release — <span class="text-amber-300 font-semibold">'Arre bhai, feature samajh ke ship kar do!'</span> vs <span class="text-cyan-300 font-semibold">'Mere machine pe chal raha tha!'</span>"
+      </p>
+<div class="rounded-xl overflow-hidden border border-slate-700 bg-slate-950 p-2 max-w-lg mx-auto shadow-sm">
+<div class="aspect-video rounded-lg overflow-hidden bg-slate-900 border border-slate-800 flex flex-col justify-between p-3.5 relative">
+<div class="text-center meme-overlay-text text-sm sm:text-base font-black">
+            "DEKH RAHA HAI NA BINOD?"
+          </div>
+<div class="self-center flex flex-col items-center">
+<span class="text-3xl">🚜🌾</span>
+<span class="text-[10px] font-mono text-amber-300 bg-slate-950 px-2 py-0.5 rounded mt-1 font-bold border border-slate-800">
+              Phulera Tech Gram Sabha
+            </span>
+</div>
+<div class="text-center meme-overlay-text text-xs sm:text-sm text-amber-300 font-black">
+            KAISE TICKET BINA TEST PASSED MOVE HO GAYI!
+          </div>
+</div>
+</div>
+<div class="bg-slate-950 border border-slate-800 p-2.5 rounded-xl space-y-1.5 text-xs">
+<div class="flex items-center gap-2 text-slate-300">
+<span class="text-[11px] font-mono font-bold text-amber-400">Banrakas (DevOps):</span>
+<span>"अरे भाई, सोमवार को देखेंगे, अभी स्लैक बंद करो! (Deploy now, debug on Monday morning! ☕)"</span>
+</div>
+<div class="flex items-center gap-2 text-slate-300">
+<span class="text-[11px] font-mono font-bold text-emerald-400">Komal (QA):</span>
+<span>"Prod pe direct P1 log karungi fir sab alert ho jayenge haha! 😂"</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-slate-800 text-xs">
+<div class="flex items-center gap-1.5">
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold transition">
+<span>🔥</span><span>94 Roasts</span>
+</button>
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold transition">
+<span>😂</span><span>142 Wah Bhai</span>
+</button>
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold transition">
+<span>☕</span><span>67 Chai Sips</span>
+</button>
+</div>
+<button class="text-amber-400 hover:text-amber-300 text-xs font-semibold flex items-center gap-1">
+<span>💬 38 Banter Replies</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- END: CenterStage -->
+<!-- BEGIN: RightSidebar -->
+<aside class="lg:col-span-3 space-y-6">
+<!-- Watercooler Whispers -->
+<div class="bg-surface-card border border-slate-700/80 rounded-2xl p-4 shadow-sm">
+<div class="flex items-center justify-between mb-2.5 pb-2 border-b border-slate-800">
+<div class="flex items-center gap-2">
+<span class="text-base">☕</span>
+<h2 class="font-heading text-xs font-extrabold uppercase tracking-wide text-white">Chai-Sutta &amp; Watercooler Whispers</h2>
+</div>
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+</span>
+</div>
+<p class="text-[11px] text-slate-400 mb-3 font-medium">100% anonymous &amp; auto-destructs in 2 hours. Isolated to internal org domain.</p>
+<div class="space-y-2 max-h-[260px] overflow-y-auto pr-1 text-xs">
+<div class="p-2.5 rounded-xl bg-surface-elevated border border-slate-700/70">
+<div class="flex justify-between items-center text-[10px] text-amber-400 font-bold mb-1 font-mono">
+<span>Anonymous Samosa Guy</span>
+<span class="text-slate-500 font-normal">2m ago</span>
+</div>
+<p class="text-slate-200 text-[12px] leading-relaxed">"Free samosas on 4th floor pantry... but HR is guarding the ketchup sachets like Kohinoor!"</p>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-elevated border border-slate-700/70">
+<div class="flex justify-between items-center text-[10px] text-sky-400 font-bold mb-1 font-mono">
+<span>Shinchan in Staging</span>
+<span class="text-slate-500 font-normal">11m ago</span>
+</div>
+<p class="text-slate-200 text-[12px] leading-relaxed">"Who renamed the staging DB cluster to 'Bhide_Ekmev_Secretary_Savings'?? 😂"</p>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-elevated border border-slate-700/70">
+<div class="flex justify-between items-center text-[10px] text-emerald-400 font-bold mb-1 font-mono">
+<span>Tom &amp; Jerry QA</span>
+<span class="text-slate-500 font-normal">18m ago</span>
+</div>
+<p class="text-slate-200 text-[12px] leading-relaxed">"Prod deployment went smooth! Just nobody touch Slack, don't reload tabs, or breathe on the server."</p>
+</div>
+</div>
+<div class="mt-3 pt-2.5 border-t border-slate-800">
+<input class="w-full bg-slate-950 border border-slate-700 text-xs rounded-xl px-3 py-2 text-slate-100 placeholder-slate-400 focus:outline-none focus:border-amber-400 font-sans" placeholder="Drop some hot office chai anonymously... (Hit Enter)" type="text"/>
+</div>
+</div>
+<!-- Banterer of the Week -->
+<div class="bg-surface-card border border-amber-500/40 rounded-2xl p-4 shadow-sm">
+<div class="flex items-center justify-between mb-3">
+<h2 class="font-heading text-xs font-extrabold uppercase tracking-wide text-amber-300 flex items-center gap-1.5">
+<span>🏆</span> Banterer of the Week
+      </h2>
+<span class="text-[10px] bg-amber-400 text-slate-950 font-bold font-mono px-2 py-0.5 rounded">WEEK 44</span>
+</div>
+<div class="flex items-center gap-3 p-3 bg-slate-950 rounded-xl border border-slate-800">
+<div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-orange-600 to-amber-500 flex items-center justify-center text-xl font-bold text-white shrink-0">👑</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-xs font-bold text-white font-heading">Desi Kingpin #1</span>
+<span class="text-[9px] bg-emerald-500/20 text-emerald-300 px-1.5 py-0.2 rounded font-mono font-bold">9-DAY STREAK</span>
+</div>
+<p class="text-[11px] text-slate-300 mt-0.5">489 Roasts Delivered • 99.1% Savagery (HR Safe)</p>
+<p class="text-[10px] text-amber-300 font-medium mt-0.5">Specialty: Panchayat &amp; TMKOC Memes</p>
+</div>
+</div>
+<div class="mt-3 space-y-2 text-xs">
+<div class="flex items-center justify-between text-slate-300 px-1 py-1 rounded bg-slate-900 border border-slate-800">
+<span class="flex items-center gap-2">
+<span class="text-slate-400 font-mono text-[11px]">#2</span>
+<span class="text-white font-medium">The Jalebi Master</span>
+</span>
+<span class="font-mono text-amber-400 font-bold text-[11px]">368 🔥</span>
+</div>
+<div class="flex items-center justify-between text-slate-300 px-1 py-1 rounded bg-slate-900 border border-slate-800">
+<span class="flex items-center gap-2">
+<span class="text-slate-400 font-mono text-[11px]">#3</span>
+<span class="text-white font-medium">Banrakas from Sprint 4</span>
+</span>
+<span class="font-mono text-amber-400 font-bold text-[11px]">292 🔥</span>
+</div>
+</div>
+</div>
+<!-- Unmask Mode -->
+<div class="bg-surface-card border border-rose-500/30 rounded-2xl p-4 shadow-sm relative">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-sm">🕵️‍♂️</span>
+<span class="font-heading text-xs font-extrabold uppercase tracking-wide text-white">UNMASK MODE (SAFE HINTS)</span>
+</div>
+<p class="text-[11px] text-slate-300 mt-1 leading-snug">Curious who dropped that savage Binod roast about sprint delay?</p>
+</div>
+<span class="text-[9px] bg-rose-500 text-white font-bold font-mono px-1.5 py-0.5 rounded uppercase">HR SAFE</span>
+</div>
+<ul class="mt-2.5 space-y-1 text-[11px] text-slate-300">
+<li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">✓</span> Floor &amp; Wing quadrant hint</li>
+<li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">✓</span> Favorite chai/coffee tapri schedule</li>
+<li class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">✓</span> 100% Zero PII disclosure guarantee</li>
+</ul>
+<button class="mt-3 w-full py-2 bg-slate-800 hover:bg-orange-600 hover:text-white text-amber-300 text-xs font-bold uppercase rounded-xl border border-slate-700 transition" type="button">
+      Unlock Safe Roast Origin Clues 🔑
+    </button>
+</div>
+</aside>
+<!-- END: RightSidebar -->
+</main>
+<!-- END: MainStudioContent -->
+<!-- BEGIN: BottomStudioFooter -->
+<footer class="bg-surface-card border-t border-slate-800 mt-auto py-3 px-6 text-center text-xs text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-2 relative z-10">
+<div class="flex items-center gap-2">
+<span class="text-orange-500">🌶️</span>
+<span class="font-heading font-bold text-white">Roast Your Workspace</span>
+<span class="text-slate-600">|</span>
+<span class="text-slate-300">Panchayat • TMKOC • Cartoons &amp; Indian Workplace Banter</span>
+</div>
+<div class="flex items-center gap-4 text-[11px] text-slate-300 font-mono">
+<span>HR Compliance Shield: <strong class="text-emerald-400 font-bold">100% SECURE</strong></span>
+<span>•</span>
+<span>Company Isolated: @swiggy.in / @techcorp.com 🔒</span>
+</div>
+</footer>
+<!-- END: BottomStudioFooter -->
+<!-- Interactive JavaScript for Live Meme Preview Overlay -->
+<script data-purpose="meme-studio-interactivity">
+  document.addEventListener('DOMContentLoaded', () => {
+    const topInput = document.getElementById('memeTopInput');
+    const bottomInput = document.getElementById('memeBottomInput');
+    const canvasTop = document.getElementById('canvasTopText');
+    const canvasBottom = document.getElementById('canvasBottomText');
+
+    if (topInput && canvasTop) {
+      topInput.addEventListener('input', (e) => {
+        canvasTop.textContent = e.target.value.toUpperCase() || 'TOP TEXT HERE';
+      });
+    }
+
+    if (bottomInput && canvasBottom) {
+      bottomInput.addEventListener('input', (e) => {
+        canvasBottom.textContent = e.target.value.toUpperCase() || 'BOTTOM TEXT HERE';
+      });
+    }
+  });
+</script>
+</body></html>
