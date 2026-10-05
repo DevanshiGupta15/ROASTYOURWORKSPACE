@@ -1,29 +1,23 @@
 <div align="center">
 
-  
-  ```text
+```text
   ____   ___   _     ____ _____   __   ______  _   _ ____  
  |  _ \ / _ \ / \   / ___|_   _|  \ \ / / __ \| | | |  _ \ 
  | |_) | | | / _ \  \___ \ | |     \ V / |  | | | | | |_) |
  |  _ <| |_| / ___ \ ___) || |      | || |__| | |_| |  _ < 
  |_| \_\\___/_/   \_\____/ |_|      |_| \____/ \___/|_| \_\
-                                                           
-  W O R K S P A C E
+
+                        W O R K S P A C E
 ================================================================
 
-<h1>🌶️ ROAST YOUR WORKSPACE</h1>
+🌶️ ROAST YOUR WORKSPACE
 Corporate Satire Platform • AI Moderated • Multi-Tenant Domain Isolation
- ```
-<br/>
-
-[![Live Demo](https://img.shields.io/badge/LIVE_DEMO-Vercel-FF4500?style=for-the-badge&logo=vercel&logoColor=white)](https://roastyourworkspace.vercel.app/)
-[![Bootcamp](https://img.shields.io/badge/Google_Build_AI-Bootcamp_2026-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://certificate.hack2skill.com/claim/da79fd614c451ed870764f8f854fc68e07137179ffd022a181aa7dd3d0b83450)
-
+```
 </div>
----
-🤖 System Workflow & Execution Matrix -
 
 ```text
+---🤖 System Workflow & Execution Matrix
+ 
 [ 01. PRODUCT SPECIFICATION ]
                     │
                     ▼
@@ -49,8 +43,6 @@ Corporate Satire Platform • AI Moderated • Multi-Tenant Domain Isolation
                     │
                     ▼
          [ 04. PRODUCTION DEPLOY ] ──► 🚀 Vercel Edge Server
-
-
 ⚡ Core Modules
 🏢 Domain-Bounded Multi-Tenancy: Automated company verification (@company.com) ensuring roasts stay 100% internal.
 
@@ -69,6 +61,6 @@ Plaintext
 🏆 Bootcamp Credentials
 Developed during the Google Build AI Bootcamp (Google Gurugram & Hack2skill) under the direct mentorship of Brahmjit Singh (Product Consultant).
 
+Status: Deployed & Verified & Under Updation
 
-> Status : Deployed & Verified & Under Updation
-> Certificate URL : https://certificate.hack2skill.com/claim/da79fd614c451ed870764f8f854fc68e07137179ffd022a181aa7dd3d0b83450
+Certificate URL: https://certificate.hack2skill.com/claim/da79fd614c451ed870764f8f854fc68e07137179ffd022a181aa7dd3d0b83450
