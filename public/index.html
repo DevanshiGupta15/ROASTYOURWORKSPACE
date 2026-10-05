@@ -73,6 +73,9 @@
     </div>
   </div>
 
+  <!-- Collapsible Mobile Drawer Backdrop -->
+  <div id="drawer-backdrop" onclick="closeAllDrawers()" class="hidden fixed inset-0 z-[52] bg-black/75 backdrop-blur-sm lg:hidden"></div>
+
   <!-- TOP HEADER -->
   <header class="sticky top-0 z-40 bg-[#0F172A]/95 backdrop-blur-md border-b border-slate-800 px-4 lg:px-8 py-3.5 shadow-md">
     <div class="max-w-[1720px] mx-auto flex flex-col md:flex-row items-center justify-between gap-3 relative z-10">
@@ -88,7 +91,7 @@
           </span>
           <span class="text-[10px] font-mono text-emerald-400 font-semibold tracking-wider flex items-center gap-1 mt-0.5">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-            DOMAIN-ISOLATED BANTER ARENA
+            MULTI-TENANT ROOM ISOLATION ACTIVE
           </span>
         </div>
       </div>
@@ -109,36 +112,32 @@
         </button>
       </nav>
 
-      <!-- Domain Switcher & User Profile Pill -->
+      <!-- Active Workspace Room Indicator & User Profile Pill -->
       <div class="flex items-center gap-3">
         
-        <!-- Multi-tenant Domain Selector -->
+        <!-- Active Workspace Room Indicator (Step 1 Requirement) -->
         <div class="relative">
-          <button id="domain-switcher-btn" onclick="toggleDomainMenu()" class="flex items-center gap-2 bg-emerald-950/80 border border-emerald-500/50 hover:border-emerald-400 px-3 py-1.5 rounded-full text-xs font-mono font-bold text-emerald-300 transition shadow-sm" title="Change Workspace Domain (FR-001)">
-            <span class="material-symbols-outlined text-[16px] text-emerald-400">domain_verification</span>
-            <span id="active-domain-pill">@swiggy.in</span>
-            <span class="material-symbols-outlined text-[14px]">expand_more</span>
+          <button id="room-indicator-btn" onclick="toggleRoomMenu()" class="flex items-center gap-2 bg-emerald-950/80 border border-emerald-500/50 hover:border-emerald-400 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold text-emerald-300 transition shadow-sm" title="Active Workspace Room">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span id="active-room-indicator" class="tracking-tight">Active Room: Swiggy Tech Arena | Code: SWIGGY-101</span>
+            <span class="material-symbols-outlined text-[16px]">expand_more</span>
           </button>
           
           <!-- Dropdown -->
-          <div id="domain-dropdown" class="hidden absolute right-0 mt-2 w-56 bg-slate-900 border border-slate-700 rounded-xl shadow-2xl p-2 z-50 text-xs font-mono">
-            <div class="px-2 py-1.5 text-slate-400 font-semibold uppercase text-[10px] border-b border-slate-800">
-              Domain-Isolated Tenancy (FR-001)
+          <div id="room-dropdown" class="hidden absolute right-0 mt-2 w-72 bg-slate-900 border border-slate-700 rounded-xl shadow-2xl p-2.5 z-50 text-xs font-mono">
+            <div class="px-2 py-1.5 text-slate-400 font-semibold uppercase text-[10px] border-b border-slate-800 flex justify-between items-center">
+              <span>Workspace Room Isolation</span>
+              <span class="text-emerald-400 font-bold">100% Isolated</span>
             </div>
-            <button onclick="switchDomain('swiggy.in')" class="w-full text-left px-2.5 py-2 rounded-lg hover:bg-slate-800 text-white flex items-center justify-between mt-1">
-              <span>Swiggy (@swiggy.in)</span>
-              <span class="text-orange-400">Active</span>
-            </button>
-            <button onclick="switchDomain('zomato.com')" class="w-full text-left px-2.5 py-2 rounded-lg hover:bg-slate-800 text-slate-300 hover:text-white flex items-center justify-between">
-              <span>Zomato (@zomato.com)</span>
-              <span class="text-slate-500">Switch</span>
-            </button>
-            <button onclick="switchDomain('techcorp.com')" class="w-full text-left px-2.5 py-2 rounded-lg hover:bg-slate-800 text-slate-300 hover:text-white flex items-center justify-between">
-              <span>TechCorp (@techcorp.com)</span>
-              <span class="text-slate-500">Switch</span>
-            </button>
-            <div class="border-t border-slate-800 mt-1 pt-1 text-[10px] text-slate-400 px-2 py-1">
-              Posts never cross domain walls.
+            
+            <div id="room-dropdown-list" class="space-y-1 mt-1.5 max-h-48 overflow-y-auto pr-1">
+              <!-- Dynamically populated with rooms -->
+            </div>
+            
+            <div class="border-t border-slate-800 mt-2 pt-2">
+              <button onclick="openOnboardingModal()" class="w-full text-center py-2 px-3 rounded-lg bg-orange-600 hover:bg-orange-500 text-white font-heading font-bold text-xs uppercase transition shadow flex items-center justify-center gap-1.5">
+                <span>🔄</span> <span>Switch Room / Exit Workspace</span>
+              </button>
             </div>
           </div>
         </div>
@@ -172,8 +171,27 @@
     <!-- ========================================================================= -->
     <div id="view-feed" class="view-panel max-w-[1720px] w-full mx-auto p-4 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
       
-      <!-- LEFT SIDEBAR: Office Target Board Quick List -->
-      <aside class="lg:col-span-3 space-y-5">
+      <!-- MOBILE / TABLET COLLAPSIBLE DRAWER TRIGGER BAR (Step 4 Fix) -->
+      <div class="lg:hidden col-span-1 flex items-center justify-between gap-2 p-2.5 bg-slate-900 border border-slate-800 rounded-xl mb-1 shadow-lg">
+        <button onclick="toggleMobileDrawer('left')" class="flex-1 py-2 px-3 rounded-lg bg-surface-elevated hover:bg-slate-700 text-amber-300 font-heading font-bold text-xs flex items-center justify-center gap-1.5 shadow border border-slate-700">
+          <span>🎯</span> <span>Target Board (<span id="mobile-target-count">42</span>)</span>
+        </button>
+        <button onclick="toggleMobileDrawer('right')" class="flex-1 py-2 px-3 rounded-lg bg-surface-elevated hover:bg-slate-700 text-orange-400 font-heading font-bold text-xs flex items-center justify-center gap-1.5 shadow border border-slate-700">
+          <span>☕</span> <span>Whispers & Polls (Live)</span>
+        </button>
+      </div>
+
+      <!-- LEFT SIDEBAR: Office Target Board Quick List (Responsive Drawer) -->
+      <aside id="sidebar-left" class="lg:col-span-3 space-y-5 responsive-drawer-left">
+        
+        <!-- Mobile Drawer Close Header -->
+        <div class="lg:hidden flex items-center justify-between p-3.5 border-b border-slate-800 bg-slate-900 rounded-t-2xl">
+          <span class="font-heading font-extrabold text-xs text-white uppercase flex items-center gap-1.5">
+            <span>🎯</span> Office Target Board
+          </span>
+          <button onclick="closeAllDrawers()" class="text-slate-400 hover:text-white px-2.5 py-1 rounded bg-slate-800 text-xs font-bold">✕ Close</button>
+        </div>
+
         <div class="bg-surface-card border border-slate-800 rounded-2xl p-4 shadow-md">
           <div class="flex items-center justify-between mb-3">
             <h2 class="font-heading text-sm font-extrabold uppercase tracking-wide text-white flex items-center gap-2">
@@ -215,7 +233,7 @@
       </aside>
 
       <!-- CENTER STAGE: Desi Meme Studio & Banter Feed -->
-      <section class="lg:col-span-6 space-y-5">
+      <section class="lg:col-span-6 space-y-5 w-full min-w-0">
         
         <!-- Decency Engine Alert Banner (Auto-Intercept) -->
         <div id="decency-intercept-banner" class="hidden rounded-xl bg-red-950/80 border-2 border-red-500 p-4 shadow-lg intercept-shake">
@@ -248,30 +266,27 @@
               <div class="w-8 h-8 rounded-lg bg-orange-600 flex items-center justify-center text-white text-base font-bold shrink-0">🎬</div>
               <div>
                 <h2 class="font-heading text-sm font-black uppercase tracking-wide text-white flex items-center gap-2">
-                  Desi Meme Studio & Workplace Roaster
-                  <span class="bg-amber-400 text-slate-950 font-mono font-bold text-[10px] px-2 py-0.5 rounded">HR Decency Shield Active</span>
+                  <span>Desi Meme Studio & Roaster Box</span>
                 </h2>
-                <p class="text-[11px] text-slate-300 mt-0.5">Panchayat, TMKOC, Bollywood & Cartoons with automated moderation.</p>
+                <span class="text-[10px] font-mono text-amber-400 font-bold block">100% ANONYMOUS • HINGLISH & WORKPLACE COMEDY</span>
               </div>
             </div>
-            <div class="hidden sm:block">
-              <span class="text-[11px] font-mono bg-slate-950 text-slate-300 border border-slate-800 px-2.5 py-1 rounded-md">
-                Posting: <strong id="studio-alias-badge" class="text-emerald-400 font-semibold">Anonymous Chai Pe Charcha #504</strong>
-              </span>
+
+            <!-- Active Alias Pill -->
+            <div class="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-xs font-mono text-slate-300">
+              <span class="text-emerald-400">● Masked:</span>
+              <span id="studio-alias-badge" class="text-amber-300 font-bold">Panchayat Banrakas</span>
             </div>
           </div>
 
-          <!-- Universe Category Filter -->
-          <div class="mb-3">
-            <label class="block text-[11px] font-bold text-amber-400 uppercase tracking-wide mb-1.5 font-heading">Choose Meme Universe / Category</label>
-            <div class="flex flex-wrap gap-1.5 text-xs font-medium" id="studio-universe-pills">
-              <button onclick="filterStudioMemes('All')" class="px-2.5 py-1.5 rounded-lg bg-orange-600 text-white font-semibold">All Memes (42)</button>
-              <button onclick="filterStudioMemes('Panchayat')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">Panchayat 🚜</button>
-              <button onclick="filterStudioMemes('TMKOC')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">TMKOC 👓</button>
-              <button onclick="filterStudioMemes('Munna')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">Bollywood 🎬</button>
-              <button onclick="filterStudioMemes('Hera')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">Hera Pheri 💰</button>
-              <button onclick="filterStudioMemes('Shark')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">Shark Tank 🦈</button>
-            </div>
+          <!-- Universe Pills Strip -->
+          <div class="flex items-center gap-1.5 overflow-x-auto pb-3 mb-3 scrollbar-none" id="studio-universe-pills">
+            <button onclick="filterStudioMemes('All')" class="px-2.5 py-1.5 rounded-lg bg-orange-600 text-white font-semibold text-xs whitespace-nowrap">All Universes</button>
+            <button onclick="filterStudioMemes('Panchayat')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs whitespace-nowrap">Panchayat 🚜</button>
+            <button onclick="filterStudioMemes('TMKOC')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs whitespace-nowrap">TMKOC 👓</button>
+            <button onclick="filterStudioMemes('Munna')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs whitespace-nowrap">Bollywood 🎬</button>
+            <button onclick="filterStudioMemes('Hera')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs whitespace-nowrap">Hera Pheri 💰</button>
+            <button onclick="filterStudioMemes('Shark')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs whitespace-nowrap">Shark Tank 🦈</button>
           </div>
 
           <!-- Controls & Live Canvas Preview -->
@@ -314,35 +329,33 @@
 
             </div>
 
-            <!-- Right Live Roast Canvas Preview Box -->
+            <!-- Right Live Roast Canvas Preview Box (Step 4 Fixed Aspect Ratio) -->
             <div class="md:col-span-6 flex flex-col justify-between">
-              <label class="block text-[11px] font-bold text-amber-400 uppercase tracking-wide mb-1 font-heading">Live Roast Canvas Preview</label>
+              <label class="block text-[11px] font-bold text-amber-400 uppercase tracking-wide mb-1 font-heading">Live Roast Canvas Preview (Fixed Aspect Ratio)</label>
               
-              <!-- Canvas Container -->
-              <div id="memeCanvasContainer" class="relative aspect-square w-full rounded-xl overflow-hidden bg-slate-950 border-2 border-amber-400/90 flex flex-col justify-between p-3.5 shadow-md">
+              <!-- Fixed Aspect Ratio Canvas Container -->
+              <div id="memeCanvasContainer" class="meme-aspect-container w-full border-2 border-amber-400/90 shadow-md">
                 
                 <!-- Background Meme Image / Graphic -->
-                <div class="absolute inset-0 z-0">
-                  <img id="canvasPreviewImg" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkyPt_9-I9_OFsLIGUbqmIBLHlDil9xVEIFnc_kxxO1e9PJ_BC8u4uNbK-h8PHAzHlL5XT51GRVNmv-8CGxqEpFqhr6GZJWqDrMgtoXkd0dqZb9pTOCbm8lC_el8xGUa-VEvwiAyUokMF7LOZjlqh0YXjrhTtpyWY7BUk-Tag9jS_4o8Prfo-1bq6-QhwINBOKybxwJXd25Fs11lk8675kGD0UAXtovRt6KMPo6CsI-Y975Q4c7eRL" alt="Meme Background"/>
-                  <div class="absolute inset-0 bg-black/25"></div>
-                </div>
+                <img id="canvasPreviewImg" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkyPt_9-I9_OFsLIGUbqmIBLHlDil9xVEIFnc_kxxO1e9PJ_BC8u4uNbK-h8PHAzHlL5XT51GRVNmv-8CGxqEpFqhr6GZJWqDrMgtoXkd0dqZb9pTOCbm8lC_el8xGUa-VEvwiAyUokMF7LOZjlqh0YXjrhTtpyWY7BUk-Tag9jS_4o8Prfo-1bq6-QhwINBOKybxwJXd25Fs11lk8675kGD0UAXtovRt6KMPo6CsI-Y975Q4c7eRL" alt="Meme Background"/>
+                <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
 
-                <!-- Top Text Overlay -->
-                <div class="relative z-10 text-center px-2">
-                  <p id="canvasTopText" class="meme-overlay-text text-sm sm:text-base font-black">DEKH RAHA HAI BINOD?</p>
+                <!-- Top Text Overlay (Strict Clamped Boundary) -->
+                <div class="meme-text-top">
+                  <p id="canvasTopText" class="meme-overlay-text">DEKH RAHA HAI BINOD?</p>
                 </div>
 
                 <!-- Verified Security Watermark Badge -->
-                <div class="relative z-10 flex justify-between items-center text-[10px] text-slate-200 font-mono bg-slate-950/85 px-2.5 py-1 rounded backdrop-blur-sm self-center border border-slate-700">
+                <div class="absolute bottom-11 z-10 flex justify-between items-center text-[10px] text-slate-200 font-mono bg-slate-950/85 px-2.5 py-0.5 rounded backdrop-blur-sm self-center border border-slate-700">
                   <span class="font-bold text-emerald-400 flex items-center gap-1">
-                    <span>🛡️</span> <span id="canvas-domain-stamp">Verified @swiggy.in</span>
+                    <span>🛡️</span> <span id="canvas-domain-stamp">Verified Room</span>
                   </span>
                   <span class="text-amber-400 ml-2 font-bold">• Zero Bullying Guaranteed</span>
                 </div>
 
-                <!-- Bottom Text Overlay -->
-                <div class="relative z-10 text-center px-2">
-                  <p id="canvasBottomText" class="meme-overlay-text text-xs sm:text-sm font-black text-amber-300">KAISE SPRINT DELAY KO 'STRATEGIC REFACTORING' BOL RAHE HAIN!</p>
+                <!-- Bottom Text Overlay (Strict Clamped Boundary) -->
+                <div class="meme-text-bottom">
+                  <p id="canvasBottomText" class="meme-overlay-text">KAISE SPRINT DELAY KO 'STRATEGIC REFACTORING' BOL RAHE HAIN!</p>
                 </div>
 
               </div>
@@ -369,7 +382,7 @@
             </label>
             <div class="flex items-center gap-2">
               <button onclick="resetStudioInputs()" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 transition" type="button">Reset</button>
-              <button onclick="submitRoast()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-orange-600 to-amber-500 hover:brightness-110 text-white font-bold text-xs uppercase tracking-wide shadow transition flex items-center gap-1.5" type="button">
+              <button id="fire-roast-btn" onclick="submitRoast()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-orange-600 to-amber-500 hover:brightness-110 text-white font-bold text-xs uppercase tracking-wide shadow transition flex items-center gap-1.5" type="button">
                 <span>🚀 Fire Desi Roast</span>
               </button>
             </div>
@@ -400,10 +413,18 @@
 
       </section>
 
-      <!-- RIGHT SIDEBAR: Chai-Sutta Whispers & Masala Leaderboard -->
-      <aside class="lg:col-span-3 space-y-5">
+      <!-- RIGHT SIDEBAR: Chai-Sutta Whispers & Masala Leaderboard (Responsive Drawer) -->
+      <aside id="sidebar-right" class="lg:col-span-3 space-y-5 responsive-drawer-right">
         
-        <!-- Chai-Sutta & Watercooler Whispers -->
+        <!-- Mobile Drawer Close Header -->
+        <div class="lg:hidden flex items-center justify-between p-3.5 border-b border-slate-800 bg-slate-900 rounded-t-2xl">
+          <span class="font-heading font-extrabold text-xs text-white uppercase flex items-center gap-1.5">
+            <span>☕</span> Whispers & Hall of Fame
+          </span>
+          <button onclick="closeAllDrawers()" class="text-slate-400 hover:text-white px-2.5 py-1 rounded bg-slate-800 text-xs font-bold">✕ Close</button>
+        </div>
+
+        <!-- Chai-Sutta & Watercooler Whispers (Step 2: 2-Hour Auto-TTL) -->
         <div class="bg-surface-card border border-slate-800 rounded-2xl p-4 shadow-md">
           <div class="flex items-center justify-between mb-2.5 pb-2 border-b border-slate-800">
             <div class="flex items-center gap-2">
@@ -419,7 +440,7 @@
           
           <!-- Whispers List -->
           <div id="whispers-list" class="space-y-2 max-h-[260px] overflow-y-auto pr-1 text-xs">
-            <!-- Dynamically populated -->
+            <!-- Dynamically populated with 2-Hour TTL countdown badges -->
           </div>
 
           <!-- Post Quick Whisper Input -->
@@ -429,71 +450,30 @@
           </div>
         </div>
 
-        <!-- Weekly Masala Hall of Fame -->
+        <!-- Weekly Masala Hall of Fame (Step 2: Dynamic Engagement Calculations) -->
         <div class="bg-surface-card border border-slate-800 rounded-2xl p-4 shadow-md space-y-3">
           <div class="flex items-center justify-between pb-2 border-b border-slate-800">
             <h3 class="font-heading text-xs font-black uppercase text-amber-400 flex items-center gap-1.5">
               <span>🏆</span> Masala Hall of Fame
             </h3>
-            <span class="text-[10px] font-mono text-slate-400">Week #38</span>
+            <span id="hall-of-fame-week" class="text-[10px] font-mono text-slate-400">Dynamic Engagement</span>
           </div>
 
-          <div class="space-y-2 text-xs">
-            <div class="p-2.5 rounded-xl bg-slate-900 border border-amber-500/30 flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <span class="text-lg">🥇</span>
-                <div>
-                  <h4 class="font-bold text-white font-heading">Tanmay D. (VP Product)</h4>
-                  <span class="text-[10px] text-slate-400 font-mono">104 Roasts Received</span>
-                </div>
-              </div>
-              <span class="px-2 py-0.5 bg-amber-400/20 text-amber-300 font-mono text-[10px] rounded font-bold">CircleBack King</span>
-            </div>
-
-            <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <span class="text-lg">🥈</span>
-                <div>
-                  <h4 class="font-bold text-white font-heading">Ananya V. (Lead PM)</h4>
-                  <span class="text-[10px] text-slate-400 font-mono">56 Roasts Received</span>
-                </div>
-              </div>
-              <span class="px-2 py-0.5 bg-orange-500/20 text-orange-300 font-mono text-[10px] rounded font-bold">2-Min Sync Guru</span>
-            </div>
-
-            <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <span class="text-lg">🥉</span>
-                <div>
-                  <h4 class="font-bold text-white font-heading">Rohan S. (DevOps)</h4>
-                  <span class="text-[10px] text-slate-400 font-mono">29 Roasts Received</span>
-                </div>
-              </div>
-              <span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-300 font-mono text-[10px] rounded font-bold">Friday Prod Pusher</span>
-            </div>
+          <!-- Dynamic Leaderboard Container -->
+          <div id="hall-of-fame-list" class="space-y-2 text-xs">
+            <!-- Dynamically populated from /api/leaderboard -->
           </div>
         </div>
 
-        <!-- Quick Office Chai Poll -->
-        <div class="bg-surface-card border border-slate-800 rounded-2xl p-4 shadow-md space-y-3">
+        <!-- Quick Office Chai Poll (Step 2: Real-Time Persistent Voting) -->
+        <div id="poll-container" class="bg-surface-card border border-slate-800 rounded-2xl p-4 shadow-md space-y-3">
           <div class="flex items-center justify-between pb-1">
             <span class="text-[11px] font-bold text-amber-400 uppercase font-heading">📊 Quick Chai Tapri Poll</span>
-            <span class="text-[10px] font-mono text-emerald-400">128 Voted</span>
+            <span id="poll-votes-badge" class="text-[10px] font-mono text-emerald-400">Loading...</span>
           </div>
-          <p class="text-xs font-semibold text-white">"Kaunsa Friday 6 PM deployment sabse bada disaster tha?"</p>
-          <div class="space-y-1.5 text-xs font-mono">
-            <button onclick="votePoll(1)" class="w-full text-left p-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 flex justify-between">
-              <span>1. Payments Gateway 500 error</span>
-              <span class="text-amber-400 font-bold">58%</span>
-            </button>
-            <button onclick="votePoll(2)" class="w-full text-left p-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 flex justify-between">
-              <span>2. Notification spam to 100k users</span>
-              <span class="text-slate-400 font-bold">29%</span>
-            </button>
-            <button onclick="votePoll(3)" class="w-full text-left p-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 flex justify-between">
-              <span>3. Dropped table in staging</span>
-              <span class="text-slate-400 font-bold">13%</span>
-            </button>
+          <p id="poll-question-text" class="text-xs font-semibold text-white">Loading today's poll...</p>
+          <div id="poll-options-container" class="space-y-1.5 text-xs font-mono">
+            <!-- Dynamically populated from /api/polls -->
           </div>
         </div>
 
@@ -646,26 +626,50 @@
                 </div>
                 <div>
                   <div class="flex items-center gap-1">
-                    <span class="font-heading font-bold text-sm text-white">Rohan S.</span>
+                    <span id="settings-card-name" class="font-heading font-bold text-sm text-white">Rohan S.</span>
                     <span class="text-emerald-400 text-xs">✓</span>
                   </div>
-                  <span class="text-xs font-mono text-slate-400">@rohan_devops</span>
+                  <span id="settings-card-handle" class="text-xs font-mono text-slate-400">@rohan_devops</span>
                 </div>
               </div>
-              <span class="px-2 py-0.5 rounded-full bg-slate-800 text-amber-400 text-[10px] font-mono font-bold">DevOps Lead</span>
+              <span id="settings-card-role" class="px-2 py-0.5 rounded-full bg-slate-800 text-amber-400 text-[10px] font-mono font-bold">DevOps Lead</span>
             </div>
 
             <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800">
               <div class="bg-slate-950 p-2 rounded-lg">
-                <span class="text-amber-400 font-bold text-xs block">🔥 9-Day Streak</span>
+                <span id="settings-card-streak" class="text-amber-400 font-bold text-xs block">🔥 9-Day Streak</span>
                 <span class="text-[10px] text-slate-400">Top 4% Engineering</span>
               </div>
               <div class="bg-slate-950 p-2 rounded-lg">
-                <span class="text-orange-400 font-bold text-xs block">1,420 Karma</span>
+                <span id="settings-card-karma" class="text-orange-400 font-bold text-xs block">1,420 Karma</span>
                 <span class="text-[10px] text-slate-400">Roaster Score</span>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- ACTIVE WORKSPACE ROOM & TENANCY SECTION (Step 1 Requirement) -->
+      <div class="bg-surface-card border border-emerald-500/40 rounded-2xl p-6 shadow-xl relative overflow-hidden">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="flex items-center gap-3.5">
+            <div class="w-12 h-12 rounded-xl bg-emerald-950 border border-emerald-500/50 flex items-center justify-center text-emerald-400 text-2xl shadow">
+              🏢
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 id="settings-room-name" class="font-heading font-black text-lg text-white">Swiggy Tech Arena</h3>
+                <span id="settings-room-code-badge" class="px-2 py-0.5 rounded bg-emerald-950 border border-emerald-500/40 text-emerald-300 font-mono text-[10px] font-bold">CODE: SWIGGY-101</span>
+              </div>
+              <p class="text-xs text-slate-300 mt-0.5 font-mono">
+                Isolated Domain: <strong id="settings-room-domain" class="text-amber-400">@swiggy.in</strong> • Strict Database Row-Level Security Enabled
+              </p>
+            </div>
+          </div>
+          
+          <button onclick="openOnboardingModal()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-600 to-amber-500 hover:brightness-110 text-white font-heading font-bold text-xs uppercase tracking-wide shadow transition flex items-center gap-2 self-start md:self-auto">
+            <span>🔄</span> <span>Switch Room / Exit Workspace</span>
+          </button>
         </div>
       </div>
 
@@ -685,7 +689,7 @@
                   <span class="text-xs text-slate-400">Control what other colleagues see about you</span>
                 </div>
               </div>
-              <span class="px-2.5 py-0.5 rounded-full bg-slate-800 text-emerald-400 font-mono text-[11px] font-bold">Domain: @swiggy.in</span>
+              <span id="settings-domain-pill" class="px-2.5 py-0.5 rounded-full bg-slate-800 text-emerald-400 font-mono text-[11px] font-bold">Domain: @swiggy.in</span>
             </div>
 
             <div class="space-y-4">
@@ -759,7 +763,7 @@
           </div>
         </section>
 
-        <!-- Panel B: Jokes & Content Filter (Col 8-12) -->
+        <!-- Panel B: Jokes & Content Filter (Col 8-12) (Step 3: Persistence) -->
         <section class="lg:col-span-5 bg-surface-card border border-slate-800 rounded-2xl p-6 shadow-md flex flex-col justify-between space-y-6">
           <div>
             <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-800">
@@ -819,15 +823,15 @@
                 <h4 class="font-heading font-bold text-xs text-white">Push Notifications (Simulated)</h4>
                 <div class="space-y-1.5">
                   <label class="flex items-center gap-2 cursor-pointer">
-                    <input checked="" class="rounded bg-slate-950 border-slate-700 text-orange-600 focus:ring-0" type="checkbox"/>
+                    <input id="notif-roast" checked="" class="rounded bg-slate-950 border-slate-700 text-orange-600 focus:ring-0" type="checkbox"/>
                     <span class="text-slate-300">Someone roasted me anonymously</span>
                   </label>
                   <label class="flex items-center gap-2 cursor-pointer">
-                    <input checked="" class="rounded bg-slate-950 border-slate-700 text-orange-600 focus:ring-0" type="checkbox"/>
+                    <input id="notif-meme" checked="" class="rounded bg-slate-950 border-slate-700 text-orange-600 focus:ring-0" type="checkbox"/>
                     <span class="text-slate-300">Tagged in an Indian meme template</span>
                   </label>
                   <label class="flex items-center gap-2 cursor-pointer">
-                    <input checked="" class="rounded bg-slate-950 border-slate-700 text-orange-600 focus:ring-0" type="checkbox"/>
+                    <input id="notif-streak" checked="" class="rounded bg-slate-950 border-slate-700 text-orange-600 focus:ring-0" type="checkbox"/>
                     <span class="text-slate-300">Streak expiry warning alert</span>
                   </label>
                 </div>
@@ -845,92 +849,109 @@
 
     </div>
 
-    <!-- ========================================================================= -->
-    <!-- VIEW 5: AUTH & WORK ONBOARDING (Auth Screen)                              -->
-    <!-- ========================================================================= -->
-    <div id="view-auth" class="view-panel hidden max-w-lg mx-auto p-4 lg:p-8 space-y-6 my-auto">
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: MULTI-TENANT ONBOARDING / ENTRY GATE (Step 1 Requirement)          -->
+  <!-- ========================================================================= -->
+  <div id="onboarding-modal" class="hidden fixed inset-0 z-[65] bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-surface-card border border-slate-700 rounded-2xl max-w-lg w-full p-6 shadow-2xl relative overflow-hidden space-y-4">
+      <div class="absolute -top-16 -right-16 w-48 h-48 bg-orange-600/10 rounded-full blur-3xl pointer-events-none"></div>
       
-      <div class="bg-surface-card border border-slate-800 rounded-2xl p-6 shadow-2xl relative overflow-hidden">
-        
-        <!-- Header -->
-        <div class="flex items-center justify-between pb-4 border-b border-slate-800">
-          <div class="flex items-center gap-2.5">
-            <div class="w-9 h-9 rounded-xl bg-orange-600 flex items-center justify-center text-white text-lg font-bold shadow">
-              🌶️
-            </div>
-            <div>
-              <h2 class="font-heading font-black text-base text-white tracking-tight uppercase">
-                Claim Your Workspace Desk
-              </h2>
-              <span class="text-[10px] font-mono text-emerald-400 font-bold">100% DOMAIN-VERIFIED ARENA</span>
-            </div>
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-orange-600 to-amber-500 flex items-center justify-center text-white text-xl font-bold shadow">
+            🌶️
           </div>
-          <span class="text-xs font-mono text-amber-400 bg-amber-950 border border-amber-500/40 px-2 py-0.5 rounded">
-            DESI SATIRE
-          </span>
-        </div>
-
-        <!-- Explanation -->
-        <div class="mt-4 p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5">
-          <span class="text-[11px] font-mono uppercase text-amber-400 font-bold block">Strict Security Guarantee:</span>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            Only official corporate (<strong class="text-emerald-400">@company.com</strong>) or institute (<strong class="text-emerald-400">@institute.edu.in</strong>) emails are accepted. Personal Gmail/Yahoo are blocked to keep content strictly isolated.
-          </p>
-        </div>
-
-        <!-- Form -->
-        <form onsubmit="handleAuthSubmit(event)" class="mt-5 space-y-4">
-          
-          <!-- Corporate Email Input -->
           <div>
-            <div class="flex justify-between items-center mb-1">
-              <label class="font-heading font-bold text-xs text-white">Corporate Email Address</label>
-              <span id="auth-domain-detected-pill" class="text-[10px] font-mono text-emerald-400 hidden">Domain Detected ✓</span>
-            </div>
-            <input id="auth-email-input" oninput="detectAuthDomain(this.value)" class="w-full bg-slate-950 border border-slate-700 text-xs rounded-xl px-3.5 py-2.5 text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none" placeholder="e.g. rohan@swiggy.in, name@zomato.com" required="" type="email"/>
-            <p id="auth-email-error" class="hidden text-[11px] font-mono text-red-400 mt-1"></p>
+            <h2 class="font-heading font-black text-lg text-white tracking-tight uppercase">
+              Enter Workspace Room
+            </h2>
+            <span class="text-[10px] font-mono text-emerald-400 font-bold flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+              DOMAIN-ISOLATED ROOM ENCRYPTION
+            </span>
           </div>
-
-          <!-- Incognito Workspace Alias Input -->
-          <div>
-            <div class="flex justify-between items-center mb-1">
-              <label class="font-heading font-bold text-xs text-white">Incognito Roasting Alias</label>
-              <button type="button" onclick="rollAuthAlias()" class="text-[11px] font-mono text-amber-400 hover:underline">
-                🎲 Roll Dice
-              </button>
-            </div>
-            <input id="auth-alias-input" class="w-full bg-slate-950 border border-slate-700 text-xs rounded-lg px-3.5 py-2 text-white font-mono focus:border-amber-400 focus:outline-none" value="SamosaBandit_404"/>
-          </div>
-
-          <!-- Quick Work SSO Options -->
-          <div class="pt-2">
-            <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-orange-600 to-amber-500 hover:brightness-110 text-white font-heading font-black text-sm uppercase tracking-wide shadow-lg transition">
-              Verify Domain & Claim Desk 🚀
-            </button>
-          </div>
-
-          <!-- Demo Quick Logins -->
-          <div class="pt-3 border-t border-slate-800 text-center">
-            <span class="text-[10px] font-mono text-slate-400 uppercase block mb-2">Instant Demo Workspaces:</span>
-            <div class="flex justify-center gap-2 text-xs font-mono">
-              <button type="button" onclick="quickLogin('rohan@swiggy.in')" class="px-2.5 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-orange-400 font-bold">@swiggy.in</button>
-              <button type="button" onclick="quickLogin('vikram@zomato.com')" class="px-2.5 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-red-400 font-bold">@zomato.com</button>
-              <button type="button" onclick="quickLogin('sneha@techcorp.com')" class="px-2.5 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-purple-400 font-bold">@techcorp.com</button>
-            </div>
-          </div>
-
-        </form>
-
+        </div>
+        <button id="onboarding-close-btn" onclick="closeOnboardingModal()" class="text-slate-400 hover:text-white text-lg">✕</button>
       </div>
 
-    </div>
+      <p class="text-xs text-slate-300 leading-relaxed">
+        Enter your official organisation code or work domain to unlock your team's isolated banter room. Posts from other companies will never bleed into your workspace.
+      </p>
 
-  </main>
+      <!-- Quick Room Chips for Instant Testing -->
+      <div>
+        <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wide block mb-1.5">Quick-Join Verified Rooms:</span>
+        <div class="flex flex-wrap gap-1.5 text-xs font-mono">
+          <button type="button" onclick="selectQuickRoom('SWIGGY-101', 'swiggy.in')" class="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-orange-500/40 text-orange-400 font-semibold transition">
+            Swiggy (SWIGGY-101)
+          </button>
+          <button type="button" onclick="selectQuickRoom('ZOMATO-202', 'zomato.com')" class="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-red-500/40 text-red-400 font-semibold transition">
+            Zomato (ZOMATO-202)
+          </button>
+          <button type="button" onclick="selectQuickRoom('TECHCORP-500', 'techcorp.com')" class="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-purple-500/40 text-purple-400 font-semibold transition">
+            TechCorp (TECHCORP-500)
+          </button>
+        </div>
+      </div>
+
+      <!-- Onboarding Form -->
+      <form onsubmit="handleOnboardingSubmit(event)" class="space-y-3.5 pt-1">
+        
+        <!-- 1. Organisation Code / Domain -->
+        <div>
+          <label class="block font-heading font-bold text-xs text-white mb-1">
+            Organisation Code or Domain <span class="text-amber-400">*</span>
+          </label>
+          <div class="relative">
+            <input id="onboard-room-input" class="w-full bg-slate-950 border border-slate-700 text-xs rounded-xl pl-9 pr-3 py-2.5 text-white font-mono placeholder-slate-500 focus:border-amber-400 focus:outline-none" placeholder="e.g. SWIGGY-101 or swiggy.in" required type="text" value="SWIGGY-101"/>
+            <span class="absolute left-3 top-2.5 text-slate-400 text-xs">🏢</span>
+          </div>
+        </div>
+
+        <!-- 2. Employee ID or Work Email -->
+        <div>
+          <label class="block font-heading font-bold text-xs text-white mb-1">
+            Employee ID or Work Email <span class="text-amber-400">*</span>
+          </label>
+          <div class="relative">
+            <input id="onboard-identifier-input" class="w-full bg-slate-950 border border-slate-700 text-xs rounded-xl pl-9 pr-3 py-2.5 text-white font-mono placeholder-slate-500 focus:border-amber-400 focus:outline-none" placeholder="e.g. SW-8891 or rohan@swiggy.in" required type="text" value="SW-8891"/>
+            <span class="absolute left-3 top-2.5 text-slate-400 text-xs">🆔</span>
+          </div>
+        </div>
+
+        <!-- 3. Anonymous Alias / Secret Nickname -->
+        <div>
+          <div class="flex justify-between items-center mb-1">
+            <label class="font-heading font-bold text-xs text-white">
+              Anonymous Alias / Secret Nickname <span class="text-amber-400">*</span>
+            </label>
+            <button type="button" onclick="rollOnboardingAlias()" class="text-[11px] font-mono text-amber-400 hover:underline flex items-center gap-1">
+              🎲 Roll Random
+            </button>
+          </div>
+          <div class="relative">
+            <input id="onboard-alias-input" class="w-full bg-slate-950 border border-slate-700 text-xs rounded-xl pl-9 pr-3 py-2.5 text-white font-mono placeholder-slate-500 focus:border-amber-400 focus:outline-none" placeholder="e.g. SamosaBandit_404" required type="text" value="Panchayat Banrakas"/>
+            <span class="absolute left-3 top-2.5 text-slate-400 text-xs">🎭</span>
+          </div>
+        </div>
+
+        <!-- Action Button -->
+        <div class="pt-2">
+          <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-orange-600 to-amber-500 hover:brightness-110 text-white font-heading font-black text-sm uppercase tracking-wide shadow-lg transition">
+            Enter Workspace Room 🚀
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <!-- ========================================================================= -->
   <!-- MODAL: DEDICATED COLLEAGUE PROFILE & ROAST DRAWER (SCR-03)                -->
   <!-- ========================================================================= -->
-  <div id="colleague-profile-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+  <div id="colleague-profile-modal" class="hidden fixed inset-0 z-[65] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-surface-card border border-slate-700 rounded-2xl max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
       
       <!-- Modal Header -->
@@ -1006,7 +1027,7 @@
   <!-- ========================================================================= -->
   <!-- MODAL: CONTENT REPORTING DIALOG (Decency & Compliance)                     -->
   <!-- ========================================================================= -->
-  <div id="report-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+  <div id="report-modal" class="hidden fixed inset-0 z-[65] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-surface-card border border-slate-700 rounded-2xl max-w-md w-full p-5 shadow-2xl space-y-4">
       <div class="flex items-center justify-between pb-2 border-b border-slate-800">
         <div class="flex items-center gap-2">

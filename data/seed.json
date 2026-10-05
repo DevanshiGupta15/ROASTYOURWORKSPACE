@@ -2,7 +2,8 @@
   "organizations": [
     {
       "id": "org_swiggy",
-      "name": "Swiggy Workspace",
+      "code": "SWIGGY-101",
+      "name": "Swiggy Tech Arena",
       "domain": "swiggy.in",
       "tagline": "Fast Delivery, Faster Roasts",
       "accentColor": "#FF5722",
@@ -10,7 +11,8 @@
     },
     {
       "id": "org_zomato",
-      "name": "Zomato HQ",
+      "code": "ZOMATO-202",
+      "name": "Zomato HQ Arena",
       "domain": "zomato.com",
       "tagline": "Foodie Techies & Infinite Banter",
       "accentColor": "#E23744",
@@ -18,7 +20,8 @@
     },
     {
       "id": "org_techcorp",
-      "name": "TechCorp Global",
+      "code": "TECHCORP-500",
+      "name": "TechCorp Global Arena",
       "domain": "techcorp.com",
       "tagline": "Enterprise Bureaucracy & Late-Night Chai",
       "accentColor": "#8B5CF6",
@@ -236,12 +239,22 @@
   "posts": [
     {
       "id": "post_1",
+      "org_id": "org_swiggy",
       "orgId": "org_swiggy",
+      "author_alias": "Senior Architect Whisperer",
       "maskedAuthor": "Senior Architect Whisperer",
       "avatarIcon": "🎬",
+      "created_at": "2026-10-05T09:59:00.000Z",
       "timestamp": "4m ago",
+      "target_user_id": "col_ananya",
       "targetColleagueId": "col_ananya",
+      "target_user_name": "Ananya V. (Lead PM)",
       "targetColleagueName": "Ananya V. (Lead PM)",
+      "meme_template_id": "meme_circuit",
+      "top_text": "CLIENT EXPLAINING 14 NEW SERVICES IN 45 MINS",
+      "bottom_text": "DEVS IN GOOGLE MEET: SAMJH NAHI AAYA PAR SUNN KE ACHA LAGA!",
+      "karma_points": 25,
+      "spiciness_level": "bold",
       "roastSubject": "Sudden 6 PM Scope Creep",
       "content": "Client explaining 14 brand-new microservices for 45 mins without PRD or architecture specs... 'Bas ek chhota sa quick change hai prod pe, 2 minute lagega.'",
       "meme": {
@@ -279,12 +292,22 @@
     },
     {
       "id": "post_2",
+      "org_id": "org_swiggy",
       "orgId": "org_swiggy",
+      "author_alias": "Sachiv-Ji Enthusiast",
       "maskedAuthor": "Sachiv-Ji Enthusiast",
       "avatarIcon": "🚜",
+      "created_at": "2026-10-05T09:47:00.000Z",
       "timestamp": "16m ago",
+      "target_user_id": "col_rohan",
       "targetColleagueId": "col_rohan",
+      "target_user_name": "Rohan S. (DevOps Lead)",
       "targetColleagueName": "Rohan S. (DevOps Lead)",
+      "meme_template_id": "meme_binod",
+      "top_text": "DEKH RAHA HAI NA BINOD?",
+      "bottom_text": "KAISE TICKET BINA TEST PASSED MOVE HO GAYI!",
+      "karma_points": 20,
+      "spiciness_level": "medium",
       "roastSubject": "Friday 6 PM Release Gate",
       "content": "When QA discovers a critical blocker 5 mins before Friday 6 PM release — 'Arre bhai, feature samajh ke ship kar do!' vs 'Mere machine pe chal raha tha!'",
       "meme": {
@@ -317,12 +340,22 @@
     },
     {
       "id": "post_3",
+      "org_id": "org_swiggy",
       "orgId": "org_swiggy",
+      "author_alias": "Chai Tapri Regular",
       "maskedAuthor": "Chai Tapri Regular",
       "avatarIcon": "☕",
+      "created_at": "2026-10-05T09:21:00.000Z",
       "timestamp": "42m ago",
+      "target_user_id": "col_tanmay",
       "targetColleagueId": "col_tanmay",
+      "target_user_name": "Tanmay D. (VP Product)",
       "targetColleagueName": "Tanmay D. (VP Product)",
+      "meme_template_id": "meme_ashneer",
+      "top_text": "VP PRAISING YOU ALL QUARTER IN TOWN HALL",
+      "bottom_text": "SALARY HIKE COMMITTEE: YEH SAB DOGLAPAN HAI!",
+      "karma_points": 35,
+      "spiciness_level": "nuclear",
       "roastSubject": "Appraisal Metric Matrix",
       "content": "VP: 'Your performance this quarter was extraordinary!' Me: 'So 20% hike?' VP: 'Now let us look at macroeconomic headwinds and EBITDA optimization...'",
       "meme": {
@@ -350,12 +383,22 @@
     },
     {
       "id": "post_4",
+      "org_id": "org_zomato",
       "orgId": "org_zomato",
+      "author_alias": "Biryani Dispatcher #77",
       "maskedAuthor": "Biryani Dispatcher #77",
       "avatarIcon": "🛵",
+      "created_at": "2026-10-05T09:03:00.000Z",
       "timestamp": "1h ago",
+      "target_user_id": "col_vikram",
       "targetColleagueId": "col_vikram",
+      "target_user_name": "Vikram K. (Fleet Lead)",
       "targetColleagueName": "Vikram K. (Fleet Lead)",
+      "meme_template_id": null,
+      "top_text": null,
+      "bottom_text": null,
+      "karma_points": 15,
+      "spiciness_level": "medium",
       "roastSubject": "Rain Surge Pricing Algorithm",
       "content": "Bangalore gets 2 drops of drizzle and Zomato surge goes from 10 to 150 like Sensex in a bull run! 😂",
       "meme": null,
@@ -373,31 +416,85 @@
   "whispers": [
     {
       "id": "whisp_1",
+      "org_id": "org_swiggy",
       "orgId": "org_swiggy",
+      "author_alias": "Anonymous Samosa Guy",
       "author": "Anonymous Samosa Guy",
       "text": "Free samosas on 4th floor pantry... but HR is guarding the ketchup sachets like Kohinoor! 🥟",
-      "time": "2m ago"
+      "time": "2m ago",
+      "created_at": "2026-10-05T10:01:00.000Z",
+      "expires_at": "2026-10-05T12:01:00.000Z"
     },
     {
       "id": "whisp_2",
+      "org_id": "org_swiggy",
       "orgId": "org_swiggy",
+      "author_alias": "Shinchan in Staging",
       "author": "Shinchan in Staging",
       "text": "Who renamed the staging DB cluster to 'Bhide_Ekmev_Secretary_Savings'?? 😂",
-      "time": "11m ago"
+      "time": "11m ago",
+      "created_at": "2026-10-05T09:52:00.000Z",
+      "expires_at": "2026-10-05T11:52:00.000Z"
     },
     {
       "id": "whisp_3",
+      "org_id": "org_swiggy",
       "orgId": "org_swiggy",
+      "author_alias": "Coffee Machine Survivor",
       "author": "Coffee Machine Survivor",
       "text": "The 3rd floor espresso tap is dispensing hot water and existential dread again.",
-      "time": "25m ago"
+      "time": "25m ago",
+      "created_at": "2026-10-05T09:38:00.000Z",
+      "expires_at": "2026-10-05T11:38:00.000Z"
     },
     {
       "id": "whisp_4",
+      "org_id": "org_zomato",
       "orgId": "org_zomato",
+      "author_alias": "Midnight Muncher",
       "author": "Midnight Muncher",
       "text": "Gulab jamun tasting session in the kitchen right now, run don't walk!",
-      "time": "15m ago"
+      "time": "15m ago",
+      "created_at": "2026-10-05T09:48:00.000Z",
+      "expires_at": "2026-10-05T11:48:00.000Z"
+    }
+  ],
+  "polls": [
+    {
+      "id": "poll_swiggy_1",
+      "org_id": "org_swiggy",
+      "question": "Kaunsa Friday 6 PM deployment sabse bada disaster tha?",
+      "options": [
+        { "id": "opt_1", "text": "Payments Gateway 500 error", "votes": 58 },
+        { "id": "opt_2", "text": "Notification spam to 100k users", "votes": 29 },
+        { "id": "opt_3", "text": "Dropped table in staging", "votes": 13 }
+      ],
+      "total_votes": 100,
+      "user_votes": {}
+    },
+    {
+      "id": "poll_zomato_1",
+      "org_id": "org_zomato",
+      "question": "Which Bangalore drizzle excuse is most unbelievable?",
+      "options": [
+        { "id": "opt_z1", "text": "Silk Board signal timer reset to 999s", "votes": 42 },
+        { "id": "opt_z2", "text": "Delivery bag flew away in 5km/h wind", "votes": 28 },
+        { "id": "opt_z3", "text": "Google Maps routed via outer space", "votes": 35 }
+      ],
+      "total_votes": 105,
+      "user_votes": {}
+    },
+    {
+      "id": "poll_techcorp_1",
+      "org_id": "org_techcorp",
+      "question": "Longest useless meeting of the week award goes to?",
+      "options": [
+        { "id": "opt_t1", "text": "Pre-meeting to align on next meeting", "votes": 64 },
+        { "id": "opt_t2", "text": "Sprint Retro where no action items were read", "votes": 41 },
+        { "id": "opt_t3", "text": "Town hall with 45 mins audio issues", "votes": 53 }
+      ],
+      "total_votes": 158,
+      "user_votes": {}
     }
   ],
   "userSettings": {
@@ -406,6 +503,7 @@
       "name": "Rohan S.",
       "email": "rohan@swiggy.in",
       "domain": "swiggy.in",
+      "empId": "SW-8891",
       "role": "DevOps Lead",
       "alias": "Anonymous Chai Lover #504",
       "karma": 1420,

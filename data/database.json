@@ -2,7 +2,8 @@
   "organizations": [
     {
       "id": "org_swiggy",
-      "name": "Swiggy Workspace",
+      "code": "SWIGGY-101",
+      "name": "Swiggy Tech Arena",
       "domain": "swiggy.in",
       "tagline": "Fast Delivery, Faster Roasts",
       "accentColor": "#FF5722",
@@ -10,7 +11,8 @@
     },
     {
       "id": "org_zomato",
-      "name": "Zomato HQ",
+      "code": "ZOMATO-202",
+      "name": "Zomato HQ Arena",
       "domain": "zomato.com",
       "tagline": "Foodie Techies & Infinite Banter",
       "accentColor": "#E23744",
@@ -18,7 +20,8 @@
     },
     {
       "id": "org_techcorp",
-      "name": "TechCorp Global",
+      "code": "TECHCORP-500",
+      "name": "TechCorp Global Arena",
       "domain": "techcorp.com",
       "tagline": "Enterprise Bureaucracy & Late-Night Chai",
       "accentColor": "#8B5CF6",
@@ -302,25 +305,36 @@
   ],
   "posts": [
     {
-      "id": "post_1789727745332",
+      "id": "post_1791176146569",
+      "org_id": "org_techcorp",
       "orgId": "org_techcorp",
-      "maskedAuthor": "Anonymous Chai Lover #504",
+      "author_alias": "Circuit Whisperer",
+      "maskedAuthor": "Circuit Whisperer",
       "avatarIcon": "🎬",
+      "created_at": "2026-10-05T04:55:46.569Z",
       "timestamp": "Just now",
+      "target_user_id": null,
       "targetColleagueId": null,
+      "target_user_name": null,
       "targetColleagueName": null,
-      "roastSubject": "Workplace Satire",
-      "content": "CLIENT EXPLAINING 14 NEW SERVICES IN 45 MINS — DEVS IN GOOGLE MEET: SAMJH NAHI AAYA PAR SUNN KE ACHA LAGA!",
+      "meme_template_id": "meme_binod",
+      "top_text": "DEKH RAHA HAI BINOD?",
+      "bottom_text": "KAISE SPRINT DELAY KO 'STRATEGIC REFACTORING' BOL RAHE HAIN!",
+      "karma_points": 15,
+      "spiciness_level": "bold",
+      "roastSubject": "Watercooler Roast",
+      "content": "DEKH RAHA HAI BINOD? — KAISE SPRINT DELAY KO 'STRATEGIC REFACTORING' BOL RAHE HAIN!",
       "meme": {
-        "templateId": "meme_circuit",
-        "title": "Samajh Nahi Aaya Par Sunn Ke Acha Laga",
-        "topText": "CLIENT EXPLAINING 14 NEW SERVICES IN 45 MINS",
-        "bottomText": "DEVS IN GOOGLE MEET: SAMJH NAHI AAYA PAR SUNN KE ACHA LAGA!",
-        "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuDiAMRLQGKFFKS9btrXPZ64_a4MmXars3kIsTegGLYNY3IEpZKQKoiAi7tLDcGWFjl1stznhKctqAtGhDD53xwlPF2eP-Wcy7573zcBv-gJf7yLdAWecDDaYEEQD5vZW_UYAiOYrIqyXhoXC_nvnlPXLG8rGssXg2V6IhoMbuMLAqEzACZbiivmwRyK1-jzJc46CvA6Z8lB6hZqw1ujIskmu8xbOmJp1IvrlFEBRe_8URdQWbgxSpyXU60CbQih8ybSdQ"
+        "templateId": "meme_binod",
+        "title": "Dekh Raha Hai Binod",
+        "topText": "DEKH RAHA HAI BINOD?",
+        "bottomText": "KAISE SPRINT DELAY KO 'STRATEGIC REFACTORING' BOL RAHE HAIN!",
+        "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuDkyPt_9-I9_OFsLIGUbqmIBLHlDil9xVEIFnc_kxxO1e9PJ_BC8u4uNbK-h8PHAzHlL5XT51GRVNmv-8CGxqEpFqhr6GZJWqDrMgtoXkd0dqZb9pTOCbm8lC_el8xGUa-VEvwiAyUokMF7LOZjlqh0YXjrhTtpyWY7BUk-Tag9jS_4o8Prfo-1bq6-QhwINBOKybxwJXd25Fs11lk8675kGD0UAXtovRt6KMPo6CsI-Y975Q4c7eRL"
       },
       "tags": [
-        "DesiRoast",
-        "Munna"
+        "WorkplaceRoast",
+        "DesiStudio",
+        "TECHCORP-500"
       ],
       "reactions": {
         "roasts": 1,
@@ -332,42 +346,103 @@
       "comments": []
     },
     {
-      "id": "post_1789717690326",
+      "id": "post_1791176047278",
+      "org_id": "org_swiggy",
       "orgId": "org_swiggy",
-      "maskedAuthor": "Anonymous Chai Lover #504",
+      "author_alias": "Panchayat Banrakas",
+      "maskedAuthor": "Panchayat Banrakas",
       "avatarIcon": "🎬",
+      "created_at": "2026-10-05T04:54:07.278Z",
       "timestamp": "Just now",
+      "target_user_id": null,
       "targetColleagueId": null,
+      "target_user_name": null,
       "targetColleagueName": null,
+      "meme_template_id": "meme_circuit",
+      "top_text": "FRIDAY 5:58 PM QUICK SYNC",
+      "bottom_text": "MEETING ENDED AT 7:15 PM",
+      "karma_points": 15,
+      "spiciness_level": "bold",
       "roastSubject": "Friday Syncs",
       "content": "Quick 2-minute sync scheduled by PM at 5:58 PM Friday!",
       "meme": {
         "templateId": "meme_circuit",
-        "title": "Samajh Nahi Aaya",
+        "title": "Samajh Nahi Aaya Par Sunn Ke Acha Laga",
         "topText": "FRIDAY 5:58 PM QUICK SYNC",
-        "bottomText": "MEETING ENDED AT 7:15 PM"
+        "bottomText": "MEETING ENDED AT 7:15 PM",
+        "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuDiAMRLQGKFFKS9btrXPZ64_a4MmXars3kIsTegGLYNY3IEpZKQKoiAi7tLDcGWFjl1stznhKctqAtGhDD53xwlPF2eP-Wcy7573zcBv-gJf7yLdAWecDDaYEEQD5vZW_UYAiOYrIqyXhoXC_nvnlPXLG8rGssXg2V6IhoMbuMLAqEzACZbiivmwRyK1-jzJc46CvA6Z8lB6hZqw1ujIskmu8xbOmJp1IvrlFEBRe_8URdQWbgxSpyXU60CbQih8ybSdQ"
       },
       "tags": [
         "WorkplaceRoast",
         "HinglishBanter"
       ],
       "reactions": {
-        "roasts": 4,
-        "masala": 1,
-        "chai": 1,
-        "salty": 1
+        "roasts": 2,
+        "masala": 0,
+        "chai": 0,
+        "salty": 0
+      },
+      "reportCount": 0,
+      "comments": []
+    },
+    {
+      "id": "post_1791175811637",
+      "org_id": "org_swiggy",
+      "orgId": "org_swiggy",
+      "author_alias": "Panchayat Banrakas",
+      "maskedAuthor": "Panchayat Banrakas",
+      "avatarIcon": "🎬",
+      "created_at": "2026-10-05T04:50:11.637Z",
+      "timestamp": "Just now",
+      "target_user_id": null,
+      "targetColleagueId": null,
+      "target_user_name": null,
+      "targetColleagueName": null,
+      "meme_template_id": "meme_circuit",
+      "top_text": "FRIDAY 5:58 PM QUICK SYNC",
+      "bottom_text": "MEETING ENDED AT 7:15 PM",
+      "karma_points": 15,
+      "spiciness_level": "bold",
+      "roastSubject": "Friday Syncs",
+      "content": "Quick 2-minute sync scheduled by PM at 5:58 PM Friday!",
+      "meme": {
+        "templateId": "meme_circuit",
+        "title": "Samajh Nahi Aaya Par Sunn Ke Acha Laga",
+        "topText": "FRIDAY 5:58 PM QUICK SYNC",
+        "bottomText": "MEETING ENDED AT 7:15 PM",
+        "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuDiAMRLQGKFFKS9btrXPZ64_a4MmXars3kIsTegGLYNY3IEpZKQKoiAi7tLDcGWFjl1stznhKctqAtGhDD53xwlPF2eP-Wcy7573zcBv-gJf7yLdAWecDDaYEEQD5vZW_UYAiOYrIqyXhoXC_nvnlPXLG8rGssXg2V6IhoMbuMLAqEzACZbiivmwRyK1-jzJc46CvA6Z8lB6hZqw1ujIskmu8xbOmJp1IvrlFEBRe_8URdQWbgxSpyXU60CbQih8ybSdQ"
+      },
+      "tags": [
+        "WorkplaceRoast",
+        "HinglishBanter"
+      ],
+      "reactions": {
+        "roasts": 2,
+        "masala": 0,
+        "chai": 0,
+        "salty": 0
       },
       "reportCount": 0,
       "comments": []
     },
     {
       "id": "post_1",
+      "org_id": "org_swiggy",
       "orgId": "org_swiggy",
+      "author_alias": "Senior Architect Whisperer",
       "maskedAuthor": "Senior Architect Whisperer",
       "avatarIcon": "🎬",
+      "created_at": "2026-10-05T09:59:00.000Z",
       "timestamp": "4m ago",
+      "target_user_id": "col_ananya",
       "targetColleagueId": "col_ananya",
+      "target_user_name": "Ananya V. (Lead PM)",
       "targetColleagueName": "Ananya V. (Lead PM)",
+      "meme_template_id": "meme_circuit",
+      "top_text": "CLIENT EXPLAINING 14 NEW SERVICES IN 45 MINS",
+      "bottom_text": "DEVS IN GOOGLE MEET: SAMJH NAHI AAYA PAR SUNN KE ACHA LAGA!",
+      "karma_points": 25,
+      "spiciness_level": "bold",
       "roastSubject": "Sudden 6 PM Scope Creep",
       "content": "Client explaining 14 brand-new microservices for 45 mins without PRD or architecture specs... 'Bas ek chhota sa quick change hai prod pe, 2 minute lagega.'",
       "meme": {
@@ -409,12 +484,22 @@
     },
     {
       "id": "post_2",
+      "org_id": "org_swiggy",
       "orgId": "org_swiggy",
+      "author_alias": "Sachiv-Ji Enthusiast",
       "maskedAuthor": "Sachiv-Ji Enthusiast",
       "avatarIcon": "🚜",
+      "created_at": "2026-10-05T09:47:00.000Z",
       "timestamp": "16m ago",
+      "target_user_id": "col_rohan",
       "targetColleagueId": "col_rohan",
+      "target_user_name": "Rohan S. (DevOps Lead)",
       "targetColleagueName": "Rohan S. (DevOps Lead)",
+      "meme_template_id": "meme_binod",
+      "top_text": "DEKH RAHA HAI NA BINOD?",
+      "bottom_text": "KAISE TICKET BINA TEST PASSED MOVE HO GAYI!",
+      "karma_points": 20,
+      "spiciness_level": "medium",
       "roastSubject": "Friday 6 PM Release Gate",
       "content": "When QA discovers a critical blocker 5 mins before Friday 6 PM release — 'Arre bhai, feature samajh ke ship kar do!' vs 'Mere machine pe chal raha tha!'",
       "meme": {
@@ -451,12 +536,22 @@
     },
     {
       "id": "post_3",
+      "org_id": "org_swiggy",
       "orgId": "org_swiggy",
+      "author_alias": "Chai Tapri Regular",
       "maskedAuthor": "Chai Tapri Regular",
       "avatarIcon": "☕",
+      "created_at": "2026-10-05T09:21:00.000Z",
       "timestamp": "42m ago",
+      "target_user_id": "col_tanmay",
       "targetColleagueId": "col_tanmay",
+      "target_user_name": "Tanmay D. (VP Product)",
       "targetColleagueName": "Tanmay D. (VP Product)",
+      "meme_template_id": "meme_ashneer",
+      "top_text": "VP PRAISING YOU ALL QUARTER IN TOWN HALL",
+      "bottom_text": "SALARY HIKE COMMITTEE: YEH SAB DOGLAPAN HAI!",
+      "karma_points": 35,
+      "spiciness_level": "nuclear",
       "roastSubject": "Appraisal Metric Matrix",
       "content": "VP: 'Your performance this quarter was extraordinary!' Me: 'So 20% hike?' VP: 'Now let us look at macroeconomic headwinds and EBITDA optimization...'",
       "meme": {
@@ -488,12 +583,22 @@
     },
     {
       "id": "post_4",
+      "org_id": "org_zomato",
       "orgId": "org_zomato",
+      "author_alias": "Biryani Dispatcher #77",
       "maskedAuthor": "Biryani Dispatcher #77",
       "avatarIcon": "🛵",
+      "created_at": "2026-10-05T09:03:00.000Z",
       "timestamp": "1h ago",
+      "target_user_id": "col_vikram",
       "targetColleagueId": "col_vikram",
+      "target_user_name": "Vikram K. (Fleet Lead)",
       "targetColleagueName": "Vikram K. (Fleet Lead)",
+      "meme_template_id": null,
+      "top_text": null,
+      "bottom_text": null,
+      "karma_points": 15,
+      "spiciness_level": "medium",
       "roastSubject": "Rain Surge Pricing Algorithm",
       "content": "Bangalore gets 2 drops of drizzle and Zomato surge goes from 10 to 150 like Sensex in a bull run! 😂",
       "meme": null,
@@ -514,51 +619,161 @@
   ],
   "whispers": [
     {
-      "id": "whisp_1789727623956",
-      "orgId": "org_techcorp",
+      "id": "whisp_1791176047292",
+      "org_id": "org_swiggy",
+      "orgId": "org_swiggy",
+      "author_alias": "Pantry Ghost",
       "author": "Pantry Ghost",
-      "text": "A bald headed made me an boiled egg.",
-      "time": "Just now"
+      "text": "Free samosas arriving at 4th floor pantry in 10 minutes!",
+      "time": "Just now",
+      "created_at": "2026-10-05T04:54:07.292Z",
+      "expires_at": "2026-10-05T06:54:07.292Z",
+      "ttl_minutes_left": 120
+    },
+    {
+      "id": "whisp_1791175811657",
+      "org_id": "org_swiggy",
+      "orgId": "org_swiggy",
+      "author_alias": "Pantry Ghost",
+      "author": "Pantry Ghost",
+      "text": "Free samosas arriving at 4th floor pantry in 10 minutes!",
+      "time": "Just now",
+      "created_at": "2026-10-05T04:50:11.657Z",
+      "expires_at": "2026-10-05T06:50:11.657Z",
+      "ttl_minutes_left": 120
     },
     {
       "id": "whisp_1",
+      "org_id": "org_swiggy",
       "orgId": "org_swiggy",
+      "author_alias": "Anonymous Samosa Guy",
       "author": "Anonymous Samosa Guy",
       "text": "Free samosas on 4th floor pantry... but HR is guarding the ketchup sachets like Kohinoor! 🥟",
-      "time": "2m ago"
+      "time": "2m ago",
+      "created_at": "2026-10-05T10:01:00.000Z",
+      "expires_at": "2026-10-05T12:01:00.000Z"
     },
     {
       "id": "whisp_2",
+      "org_id": "org_swiggy",
       "orgId": "org_swiggy",
+      "author_alias": "Shinchan in Staging",
       "author": "Shinchan in Staging",
       "text": "Who renamed the staging DB cluster to 'Bhide_Ekmev_Secretary_Savings'?? 😂",
-      "time": "11m ago"
+      "time": "11m ago",
+      "created_at": "2026-10-05T09:52:00.000Z",
+      "expires_at": "2026-10-05T11:52:00.000Z"
     },
     {
       "id": "whisp_3",
+      "org_id": "org_swiggy",
       "orgId": "org_swiggy",
+      "author_alias": "Coffee Machine Survivor",
       "author": "Coffee Machine Survivor",
       "text": "The 3rd floor espresso tap is dispensing hot water and existential dread again.",
-      "time": "25m ago"
+      "time": "25m ago",
+      "created_at": "2026-10-05T09:38:00.000Z",
+      "expires_at": "2026-10-05T11:38:00.000Z"
     },
     {
       "id": "whisp_4",
+      "org_id": "org_zomato",
       "orgId": "org_zomato",
+      "author_alias": "Midnight Muncher",
       "author": "Midnight Muncher",
       "text": "Gulab jamun tasting session in the kitchen right now, run don't walk!",
-      "time": "15m ago"
+      "time": "15m ago",
+      "created_at": "2026-10-05T09:48:00.000Z",
+      "expires_at": "2026-10-05T11:48:00.000Z"
+    }
+  ],
+  "polls": [
+    {
+      "id": "poll_swiggy_1",
+      "org_id": "org_swiggy",
+      "question": "Kaunsa Friday 6 PM deployment sabse bada disaster tha?",
+      "options": [
+        {
+          "id": "opt_1",
+          "text": "Payments Gateway 500 error",
+          "votes": 59
+        },
+        {
+          "id": "opt_2",
+          "text": "Notification spam to 100k users",
+          "votes": 29
+        },
+        {
+          "id": "opt_3",
+          "text": "Dropped table in staging",
+          "votes": 13
+        }
+      ],
+      "total_votes": 101,
+      "user_votes": {
+        "Panchayat Banrakas": "opt_1"
+      }
+    },
+    {
+      "id": "poll_zomato_1",
+      "org_id": "org_zomato",
+      "question": "Which Bangalore drizzle excuse is most unbelievable?",
+      "options": [
+        {
+          "id": "opt_z1",
+          "text": "Silk Board signal timer reset to 999s",
+          "votes": 42
+        },
+        {
+          "id": "opt_z2",
+          "text": "Delivery bag flew away in 5km/h wind",
+          "votes": 28
+        },
+        {
+          "id": "opt_z3",
+          "text": "Google Maps routed via outer space",
+          "votes": 35
+        }
+      ],
+      "total_votes": 105,
+      "user_votes": {}
+    },
+    {
+      "id": "poll_techcorp_1",
+      "org_id": "org_techcorp",
+      "question": "Longest useless meeting of the week award goes to?",
+      "options": [
+        {
+          "id": "opt_t1",
+          "text": "Pre-meeting to align on next meeting",
+          "votes": 64
+        },
+        {
+          "id": "opt_t2",
+          "text": "Sprint Retro where no action items were read",
+          "votes": 41
+        },
+        {
+          "id": "opt_t3",
+          "text": "Town hall with 45 mins audio issues",
+          "votes": 53
+        }
+      ],
+      "total_votes": 158,
+      "user_votes": {}
     }
   ],
   "userSettings": {
     "orgId": "org_techcorp",
     "currentUser": {
-      "name": "Rohan S.",
-      "email": "user@techcorp.com",
+      "name": "Dev",
+      "empId": null,
+      "email": "dev@techcorp.com",
       "domain": "techcorp.com",
-      "role": "DevOps Lead",
-      "alias": "Anonymous Chai Lover #504",
-      "karma": 1450,
-      "streak": 9,
+      "role": "Team Member",
+      "alias": "Circuit Whisperer",
+      "karma": 135,
+      "streak": 1,
       "isPremium": false
     },
     "privacy": {

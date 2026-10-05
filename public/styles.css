@@ -6,14 +6,16 @@
   text-rendering: optimizeLegibility;
 }
 
-/* Classic Meme Overlay Text (Impact font with black outline stroke) */
+/* Classic Meme Overlay Text (Impact font with black outline stroke & strict boundary containment) */
 .meme-overlay-text {
   font-family: 'Impact', 'Arial Black', sans-serif;
   text-transform: uppercase;
   color: #FFFFFF;
   text-align: center;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   line-height: 1.15;
+  word-break: break-word;
+  overflow-wrap: anywhere;
   text-shadow: 
     -2px -2px 0 #000000,  
      2px -2px 0 #000000,
@@ -23,7 +25,55 @@
      0px  2px 0 #000000,
     -2px  0px 0 #000000,
      2px  0px 0 #000000,
-     0px  3px 6px rgba(0,0,0,0.85);
+     0px  3px 6px rgba(0,0,0,0.9);
+}
+
+/* Fixed Aspect Ratio Meme Canvas Containers */
+.meme-aspect-container {
+  aspect-ratio: 4 / 3;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background-color: #0b0f19;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.meme-aspect-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none;
+}
+
+.meme-text-top {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  max-height: 42%;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: clamp(13px, 3.2vw, 22px);
+  pointer-events: none;
+}
+
+.meme-text-bottom {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  max-height: 42%;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: clamp(13px, 3.2vw, 22px);
+  pointer-events: none;
 }
 
 /* Crisp Precision Scrollbars */
@@ -96,4 +146,67 @@
   color: #ffffff !important;
   font-weight: 700 !important;
   box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+/* Modal Stacking & Background Scroll Locking */
+body.modal-open {
+  overflow: hidden !important;
+  padding-right: 6px; /* Prevent layout shift when scrollbar disappears */
+}
+
+/* Responsive Drawer Panels for Tablet & Mobile */
+@media (max-width: 1023px) {
+  .responsive-drawer-left {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 320px;
+    max-width: 85vw;
+    z-index: 55;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    background-color: #111827;
+    overflow-y: auto;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.7);
+  }
+
+  .responsive-drawer-left.drawer-open {
+    transform: translateX(0) !important;
+  }
+
+  .responsive-drawer-right {
+    position: fixed !important;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 320px;
+    max-width: 85vw;
+    z-index: 55;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    background-color: #111827;
+    overflow-y: auto;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.7);
+  }
+
+  .responsive-drawer-right.drawer-open {
+    transform: translateX(0) !important;
+  }
+}
+
+/* Live Post Entrance Animation */
+@keyframes post-slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-post-enter {
+  animation: post-slide-down 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

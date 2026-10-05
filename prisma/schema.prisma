@@ -1,0 +1,144 @@
+// =========================================================================
+// ROAST YOUR WORKSPACE — PRISMA SCHEMA
+// Multi-Tenant Room Isolation, Ephemeral Feeds & Interactive Banter
+// =========================================================================
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Organization {
+  id          String       @id @default(uuid())
+  code        String       @unique // e.g. "SWIGGY-101"
+  name        String       // e.g. "Swiggy Tech Arena"
+  domain      String       @unique // e.g. "swiggy.in"
+  tagline     String?      @default("Isolated Workspace Banter Arena")
+  accentColor String?      @default("#FF5722") @map("accent_color")
+  memberCount Int          @default(1) @map("member_count")
+  createdAt   DateTime     @default(now()) @map("created_at")
+
+  users       User[]
+  colleagues  Colleague[]
+  posts       Post[]
+  whispers    Whisper[]
+  polls       Poll[]
+  pollVotes   PollVote[]
+
+  @@map("organizations")
+}
+
+model User {
+  id        String       @id @default(uuid())
+  orgId     String       @map("org_id")
+  empId     String?      @map("emp_id")
+  email     String?      // Corporate email
+  alias     String       // Incognito alias
+  role      String       @default("Team Member")
+  karma     Int          @default(100)
+  streak    Int          @default(1)
+  createdAt DateTime     @default(now()) @map("created_at")
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  @@index([orgId])
+  @@map("users")
+}
+
+model Colleague {
+  id          String       @id @default(uuid())
+  orgId       String       @map("org_id")
+  name        String
+  handle      String
+  department  String
+  designation String
+  avatar      String       @default("👓")
+  quirk       String?
+  statusNote  String?      @map("status_note")
+  roastCount  Int          @default(0) @map("roast_count")
+  karma       Int          @default(1000)
+  streak      Int          @default(5)
+  tags        String[]
+  createdAt   DateTime     @default(now()) @map("created_at")
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  @@index([orgId])
+  @@map("colleagues")
+}
+
+model Post {
+  id              String       @id @default(uuid())
+  orgId           String       @map("org_id")
+  authorAlias     String       @map("author_alias")
+  targetUserId    String?      @map("target_user_id")
+  targetUserName  String?      @map("target_user_name")
+  memeTemplateId  String?      @map("meme_template_id")
+  topText         String?      @map("top_text")
+  bottomText      String?      @map("bottom_text")
+  karmaPoints     Int          @default(15) @map("karma_points")
+  spicinessLevel  String       @default("bold") @map("spiciness_level")
+  roastSubject    String?      @default("Workplace Banter") @map("roast_subject")
+  content         String?
+  tags            String[]     @default(["WorkplaceRoast"])
+  reactions       Json         @default("{\"roasts\": 1, \"masala\": 0, \"chai\": 0, \"salty\": 0}")
+  reportCount     Int          @default(0) @map("report_count")
+  comments        Json         @default("[]")
+  createdAt       DateTime     @default(now()) @map("created_at")
+
+  organization    Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  @@index([orgId])
+  @@index([createdAt])
+  @@map("posts")
+}
+
+model Whisper {
+  id          String       @id @default(uuid())
+  orgId       String       @map("org_id")
+  authorAlias String       @map("author_alias")
+  text        String
+  createdAt   DateTime     @default(now()) @map("created_at")
+  expiresAt   DateTime     @map("expires_at") // 2-Hour TTL
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  @@index([orgId])
+  @@index([expiresAt])
+  @@map("whispers")
+}
+
+model Poll {
+  id          String       @id @default(uuid())
+  orgId       String       @map("org_id")
+  question    String
+  options     Json         // [{ "id": "opt_1", "text": "...", "votes": 58 }]
+  totalVotes  Int          @default(0) @map("total_votes")
+  createdAt   DateTime     @default(now()) @map("created_at")
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  votes        PollVote[]
+
+  @@index([orgId])
+  @@map("polls")
+}
+
+model PollVote {
+  id             String       @id @default(uuid())
+  orgId          String       @map("org_id")
+  pollId         String       @map("poll_id")
+  optionId       String       @map("option_id")
+  userIdentifier String       @map("user_identifier")
+  createdAt      DateTime     @default(now()) @map("created_at")
+
+  organization   Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  poll           Poll         @relation(fields: [pollId], references: [id], onDelete: Cascade)
+
+  @@unique([pollId, userIdentifier])
+  @@index([orgId])
+  @@map("poll_votes")
+}
